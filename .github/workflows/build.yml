@@ -76,7 +76,7 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
               with:
-                  projectBaseDir: ./dashboard/src2
+                  projectBaseDir: ./dashboard/src
                   args: >
                       -Dsonar.projectKey=social-network-dashboard
                       -Dsonar.sourceEncoding=UTF-8
