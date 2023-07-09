@@ -117,7 +117,7 @@ jobs:
             - name: Run unit test
               working-directory: ./dashboard
               run: |
-                  npm ci
+                  npm install
 #             - name: Get report unit tests
 #               if: ${{ always() }}
 #               id: unit_test_report
