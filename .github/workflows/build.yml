@@ -79,6 +79,7 @@ jobs:
                   projectBaseDir: ./dashboard/src
                   args: >
                       -Dsonar.projectKey=social-network-dashboard
+                      -Dsonar.branch.name=${{ steps.split.outputs._0 }}
                       -Dsonar.sourceEncoding=UTF-8
                       -Dsonar.cobol.copy.directories=copybooks
                       -Dsonar.cobol.file.suffixes=cbl,cpy
