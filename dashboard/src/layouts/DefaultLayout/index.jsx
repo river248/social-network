@@ -17,8 +17,8 @@ function DefaultLayout({ children }) {
                 >
                     <Toolbar>
                         <Grid container spacing={1}>
-                            {MenuItemDefaultLayout.map((item, index) => (
-                                <Grid key={index} item xs={12} sm={6} md={4} lg={2}>
+                            {MenuItemDefaultLayout.map((item) => (
+                                <Grid key={item.id} item xs={12} sm={6} md={4} lg={2}>
                                     <CustomButton color="green" background="white">
                                         {item.label}
                                     </CustomButton>

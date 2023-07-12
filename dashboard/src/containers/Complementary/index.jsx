@@ -17,8 +17,8 @@ function Complementary() {
             }}
         >
             <Stack spacing={2}>
-                {fakeDataListChat.map((item, index) => (
-                    <FriendComponent key={index} item={item} />
+                {fakeDataListChat.map((item) => (
+                    <FriendComponent key={item.id} item={item} />
                 ))}
             </Stack>
         </Grid>
