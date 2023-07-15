@@ -1,11 +1,12 @@
 import React from 'react'
+import { Box } from '@mui/material'
 
 import { DefaultLayout } from '../../layouts'
 
 function Home() {
     return (
         <DefaultLayout>
-            <div>Home</div>
+            <Box>Home</Box>
         </DefaultLayout>
     )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
 import Button from '@mui/material/Button'
+import { Stack } from '@mui/material'
 
 function CusTomButton({ children, color, background }) {
     return (
-        <div style={{ color }}>
+        <Stack style={{ color }}>
             <Button
                 variant="contained"
                 color="inherit"
@@ -12,7 +13,7 @@ function CusTomButton({ children, color, background }) {
             >
                 {children}
             </Button>
-        </div>
+        </Stack>
     )
 }
 

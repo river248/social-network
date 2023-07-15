@@ -1,10 +1,11 @@
-// import { BrowserRouter as Router } from 'react-router-dom'
-import { Home } from './pages'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { /*Home ,*/ LoginPage } from './pages'
 function App() {
     return (
-        // <Router>
-        <Home />
-        // </Router>
+        <Router>
+            {/* <Home /> */}
+            <LoginPage />
+        </Router>
     )
 }
 
