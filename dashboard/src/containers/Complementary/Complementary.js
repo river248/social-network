@@ -14,7 +14,8 @@ function Complementary() {
                 overflowX: 'auto',
                 position: 'fixed',
                 right: '0',
-                width: '20%',
+                width: '16%',
+                // border: '1px solid gray',
             }}
         >
             <Stack spacing={2}>

@@ -6,9 +6,9 @@ import { Box, Stack } from '@mui/material'
 
 import { CustomButton } from '../../components/index'
 import { MenuItemDefaultLayout } from '../../utils/constance'
-import { Complementary } from '../../containers'
 
 function DefaultLayout({ children }) {
+    console.log('render')
     return (
         <Stack>
             <Box>
@@ -20,7 +20,7 @@ function DefaultLayout({ children }) {
                         <Grid container spacing={1}>
                             {MenuItemDefaultLayout.map((item) => (
                                 <Grid key={item.id} item xs={12} sm={6} md={4} lg={2}>
-                                    <CustomButton color="green" background="white">
+                                    <CustomButton color="green" background="white" to={item.value}>
                                         {item.label}
                                     </CustomButton>
                                 </Grid>
@@ -31,10 +31,7 @@ function DefaultLayout({ children }) {
             </Box>
             <Box>
                 <Grid container style={{ background: 'linear-gradient(to right, #c6ffdd, #fbd786, #f7797d)' }}>
-                    <Grid item xs={12} sm={10} md={10} lg={10}>
-                        {children}
-                    </Grid>
-                    <Complementary />
+                    {children}
                 </Grid>
             </Box>
         </Stack>

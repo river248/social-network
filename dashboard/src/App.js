@@ -1,11 +1,32 @@
-import { BrowserRouter as Router } from 'react-router-dom'
-import { /*Home ,*/ LoginPage } from './pages'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import { publicRoute } from './router'
+import { DefaultLayout } from './layouts'
+
 function App() {
     return (
-        <Router>
-            {/* <Home /> */}
-            <LoginPage />
-        </Router>
+        <BrowserRouter>
+            <Routes>
+                {publicRoute.map((router) => {
+                    let Layout = DefaultLayout
+                    if (router.layout) {
+                        Layout = router.layout
+                    }
+                    const Page = router.component
+                    return (
+                        <Route
+                            key={router.path}
+                            path={router.path}
+                            element={
+                                <Layout>
+                                    <Page />
+                                </Layout>
+                            }
+                        />
+                    )
+                })}
+            </Routes>
+        </BrowserRouter>
     )
 }
 

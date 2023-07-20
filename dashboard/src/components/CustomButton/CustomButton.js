@@ -1,8 +1,10 @@
 import React from 'react'
 import Button from '@mui/material/Button'
 import { Stack } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
-function CusTomButton({ children, color, background }) {
+function CusTomButton({ children, color, background, to }) {
+    const navigation = useNavigate()
     return (
         <Stack style={{ color }}>
             <Button
@@ -10,6 +12,7 @@ function CusTomButton({ children, color, background }) {
                 color="inherit"
                 sx={{ width: 200, background, cursor: 'pointer' }}
                 background="red"
+                onClick={() => navigation(to)}
             >
                 {children}
             </Button>
