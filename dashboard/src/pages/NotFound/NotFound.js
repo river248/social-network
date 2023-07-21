@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button, Stack } from '@mui/material'
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
 import { useNavigate } from 'react-router-dom'
 
 function NotFound() {

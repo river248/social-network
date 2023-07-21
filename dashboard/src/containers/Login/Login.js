@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
-import { Stack, Button, IconButton, InputAdornment, Typography } from '@mui/material'
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
+import IconButton from '@mui/material/IconButton'
+import InputAdornment from '@mui/material/InputAdornment'
+import Typography from '@mui/material/Typography'
 
 import { CustomStyles } from './Login.style'
 import CustomInput from '../../components/CustomInput'

@@ -1,5 +1,8 @@
 import React from 'react'
-import { Button, Grid, Stack, Typography } from '@mui/material'
+import Grid from '@mui/material/Grid'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
 
 function AuthenLayout({ children }) {
     return (

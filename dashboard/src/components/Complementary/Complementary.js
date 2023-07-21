@@ -1,5 +1,6 @@
 import React from 'react'
-import { Grid, Stack } from '@mui/material'
+import Stack from '@mui/material/Stack'
+import Grid from '@mui/material/Grid'
 
 import { fakeDataListChat } from '../../utils/constance'
 import FriendComponent from '../FriendComponent'

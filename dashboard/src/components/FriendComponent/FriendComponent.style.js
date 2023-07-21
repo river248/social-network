@@ -1,5 +1,5 @@
-import styled from '@emotion/styled'
-import { Badge } from '@mui/material'
+import { styled } from '@mui/material/styles'
+import Badge from '@mui/material/Badge'
 
 const StyledBadge = styled(Badge)(() => ({
     '& .MuiBadge-badge': {

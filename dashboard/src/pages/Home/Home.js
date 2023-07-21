@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react'
-import { Grid, Stack } from '@mui/material'
+import Grid from '@mui/material/Grid'
+import Stack from '@mui/material/Stack'
+
 import Complementary from '../../components/Complementary'
 
 function Home() {

@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from '@mui/material/Button'
-import { Stack } from '@mui/material'
+import Stack from '@mui/material/Stack'
 import { useNavigate } from 'react-router-dom'
 
 function CusTomButton({ children, color, background, to }) {
