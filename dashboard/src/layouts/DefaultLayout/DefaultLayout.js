@@ -4,8 +4,8 @@ import Toolbar from '@mui/material/Toolbar'
 import Grid from '@mui/material/Grid'
 import { Box, Stack } from '@mui/material'
 
-import { CustomButton } from '../../components/index'
 import { MenuItemDefaultLayout } from '../../utils/constance'
+import CusTomButton from '../../components/CustomButton'
 
 function DefaultLayout({ children }) {
     console.log('render')
@@ -20,9 +20,9 @@ function DefaultLayout({ children }) {
                         <Grid container spacing={1}>
                             {MenuItemDefaultLayout.map((item) => (
                                 <Grid key={item.id} item xs={12} sm={6} md={4} lg={2}>
-                                    <CustomButton color="green" background="white" to={item.value}>
+                                    <CusTomButton color="green" background="white" to={item.value}>
                                         {item.label}
-                                    </CustomButton>
+                                    </CusTomButton>
                                 </Grid>
                             ))}
                         </Grid>

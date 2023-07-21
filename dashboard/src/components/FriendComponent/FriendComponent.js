@@ -1,7 +1,7 @@
 import React from 'react'
 import { Avatar, Stack, Typography } from '@mui/material'
 
-import StyledBadge from './StyledBadge.js'
+import StyledBadge from './FriendComponent.style.js'
 
 function FriendComponent({ item }) {
     return (
