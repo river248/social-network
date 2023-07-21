@@ -1,5 +1,8 @@
 import AuthenLayout from '../layouts/AuthenLayout'
-import { LoginPage, Home, NotFound, Message } from '../pages'
+import Home from '../pages/Home'
+import LoginPage from '../pages/LoginPage'
+import Message from '../pages/Message'
+import NotFound from '../pages/NotFound'
 
 const publicRoute = [
     {
