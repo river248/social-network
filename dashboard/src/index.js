@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { StrictMode } from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter as Router } from 'react-router-dom'
+import CssBaseline from '@mui/material/CssBaseline'
+import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import App from './App'
+import theme from './configs/mui'
+
+const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    <StrictMode>
+        <CssVarsProvider theme={theme}>
+            <CssBaseline />
+            <Router>
+                <App />
+            </Router>
+        </CssVarsProvider>
+    </StrictMode>,
+)
