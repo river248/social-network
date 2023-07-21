@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid, Stack } from '@mui/material'
 
-import { FriendComponent } from '../../components'
+import { FriendComponent } from '..'
 import { fakeDataListChat } from '../../utils/constance'
 
 function Complementary() {

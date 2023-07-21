@@ -4,7 +4,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import { Stack, Button, IconButton, InputAdornment, Typography } from '@mui/material'
 
 import { CustomInput } from '../../components'
-import { CustomStyles } from './useStyles'
+import { CustomStyles } from './Login.style'
 const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
