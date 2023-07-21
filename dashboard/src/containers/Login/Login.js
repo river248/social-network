@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import Stack from '@mui/material/Stack'
@@ -14,23 +14,26 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(false)
 
-    const handleEmailChange = (e) => {
+    const handleEmailChange = useCallback((e) => {
         setEmail(e.target.value)
-    }
+    }, [])
 
-    const handlePasswordChange = (e) => {
+    const handlePasswordChange = useCallback((e) => {
         setPassword(e.target.value)
-    }
+    }, [])
 
-    const handleTogglePasswordVisibility = () => {
+    const handleTogglePasswordVisibility = useCallback(() => {
         setShowPassword((prevShowPassword) => !prevShowPassword)
-    }
+    }, [])
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log('Email:', email)
-        console.log('Password:', password)
-    }
+    const handleSubmit = useCallback(
+        (e) => {
+            e.preventDefault()
+            console.log('Email:', email)
+            console.log('Password:', password)
+        },
+        [email, password],
+    )
 
     return (
         <CustomStyles onSubmit={handleSubmit}>
