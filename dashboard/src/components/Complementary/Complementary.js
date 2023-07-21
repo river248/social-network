@@ -9,13 +9,14 @@ function Complementary() {
     return (
         <Grid
             sx={{
-                height: `calc(100% - ${97 / 8})`,
+                height: `calc(100% - 97px)`,
                 background: 'white',
                 padding: 0.25,
                 overflowX: 'auto',
                 position: 'fixed',
                 right: '0',
                 width: '16%',
+                // border: '1px solid gray',
             }}
         >
             <Stack spacing={2}>
