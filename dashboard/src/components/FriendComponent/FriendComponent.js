@@ -8,7 +8,6 @@ import { StyledBadge } from './FriendComponent.style'
 
 function FriendComponent({ item }) {
     const theme = useTheme()
-    console.log(theme)
     return (
         <Stack direction="row" alignItems="center" spacing={1}>
             <StyledBadge overlap="circular" anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} variant="dot">
