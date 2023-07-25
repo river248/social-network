@@ -2,10 +2,13 @@ import React from 'react'
 import Avatar from '@mui/material/Avatar'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
+import { useTheme } from '@mui/material/styles'
 
-import { StyledBadge } from './FriendComponent.style.js'
+import { StyledBadge } from './FriendComponent.style'
 
 function FriendComponent({ item }) {
+    const theme = useTheme()
+    console.log(theme)
     return (
         <Stack direction="row" alignItems="center" spacing={1}>
             <StyledBadge overlap="circular" anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} variant="dot">
