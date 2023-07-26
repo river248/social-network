@@ -13,7 +13,7 @@ function Content({ item }) {
     return (
         <Stack sx={{ background: '#3a3b3c', padding: 2, borderRadius: 4 }} spacing={1}>
             <ContentTop title={item.title} time={item.time} />
-            <Typography>{item?.content}</Typography>
+            <Typography>{item.content}</Typography>
             <Stack alignItems="center" sx={{ background: '#444654', padding: 1 }}>
                 <BoxStyle>
                     <ImageList variant="masonry" cols={3} gap={8}>

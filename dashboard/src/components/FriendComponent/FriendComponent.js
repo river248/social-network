@@ -14,7 +14,7 @@ function FriendComponent({ item }) {
                 <Avatar
                     alt={item.name}
                     src={item.avata}
-                    sx={{ border: `1/8rem solid ${theme.palette.common.black}`, cursor: 'pointer' }}
+                    sx={{ border: `0.125rem solid ${theme.palette.common.black}`, cursor: 'pointer' }}
                 ></Avatar>
             </StyledBadge>
             <Typography sx={{ cursor: 'pointer', color: theme.palette.common.black }}>{item.name}</Typography>
