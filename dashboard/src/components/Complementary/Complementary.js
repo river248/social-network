@@ -1,21 +1,20 @@
 import React from 'react'
 import Stack from '@mui/material/Stack'
-import Grid from '@mui/material/Grid'
 
 import { fakeDataListChat } from '~/utils/constance'
 import FriendComponent from '~/components/FriendComponent'
-import { gridStyle } from '~/components/Complementary/Complementary.style'
+import { GridStyle } from '~/components/Complementary/Complementary.style'
 
 function Complementary() {
     return (
-        <Grid sx={gridStyle}>
+        <GridStyle>
             <Stack spacing={2}>
                 {fakeDataListChat.map((item) => (
                     <FriendComponent key={item.id} item={item} />
                 ))}
             </Stack>
-        </Grid>
+        </GridStyle>
     )
 }
 
-export default Complementary
+export default React.memo(Complementary)

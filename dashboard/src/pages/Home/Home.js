@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid'
 import Stack from '@mui/material/Stack'
 
 import Complementary from '~/components/Complementary'
-import InfiniteScroll from '~/containers/InfiniteScroll'
+import InfiniteScroll from '~/components/InfiniteScroll'
 import { dataArray } from '~/utils/constance'
 
 function Home() {

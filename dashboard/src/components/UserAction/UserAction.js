@@ -5,42 +5,61 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied'
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble'
 import ShareIcon from '@mui/icons-material/Share'
+import Button from '@mui/material/Button'
+import { useTheme } from '@mui/material'
 
 function UserAction() {
-    const border = '1px solid white'
+    const theme = useTheme()
     return (
-        <>
+        <Stack spacing={1}>
             <Stack direction="row" justifyContent="space-between" spacing={1}>
                 <Stack direction="row" spacing={1}>
-                    <ThumbUpIcon />1<FavoriteIcon />1<SentimentVeryDissatisfiedIcon />1
+                    <Button color="inherit" endIcon={<ThumbUpIcon />}>
+                        1
+                    </Button>
+                    <Button color="inherit" endIcon={<FavoriteIcon />}>
+                        1
+                    </Button>
+                    <Button color="inherit" endIcon={<SentimentVeryDissatisfiedIcon />}>
+                        1
+                    </Button>
                 </Stack>
                 <Stack direction="row" spacing={1}>
-                    <ChatBubbleIcon />
-                    20
-                    <ShareIcon />
-                    12
+                    <Button color="inherit" endIcon={<ChatBubbleIcon />}>
+                        12
+                    </Button>
+                    <Button color="inherit" endIcon={<ShareIcon />}>
+                        13
+                    </Button>
                 </Stack>
             </Stack>
             <Stack
                 direction="row"
                 justifyContent="space-around"
                 spacing={1}
-                sx={{ borderTop: border, borderBottom: border }}
+                sx={{
+                    borderTop: `1px solid ${theme.palette.common.white}`,
+                    borderBottom: `1px solid ${theme.palette.common.white}`,
+                }}
                 padding={1}
             >
                 <Stack direction="row">
-                    <ThumbUpIcon /> Like
+                    <Button color="inherit" startIcon={<ThumbUpIcon />}>
+                        Like
+                    </Button>
                 </Stack>
                 <Stack direction="row">
-                    <ChatBubbleIcon />
-                    Comment
+                    <Button color="inherit" startIcon={<ChatBubbleIcon />}>
+                        Comment
+                    </Button>
                 </Stack>
                 <Stack direction="row">
-                    <ShareIcon />
-                    Share
+                    <Button color="inherit" startIcon={<ShareIcon />}>
+                        Share
+                    </Button>
                 </Stack>
             </Stack>
-        </>
+        </Stack>
     )
 }
 

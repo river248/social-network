@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
@@ -6,6 +6,8 @@ import Stack from '@mui/material/Stack'
 import { convertTimestampToDate } from '~/utils/helper'
 
 function ContentTop({ title, time }) {
+    const date = useMemo(() => convertTimestampToDate(time), [time])
+
     return (
         <Stack direction="row" spacing={2}>
             <Avatar
@@ -14,10 +16,10 @@ function ContentTop({ title, time }) {
             />
             <Stack>
                 <Typography>{title}</Typography>
-                <Typography>{convertTimestampToDate(time)}</Typography>
+                <Typography>{date}</Typography>
             </Stack>
         </Stack>
     )
 }
 
-export default ContentTop
+export default React.memo(ContentTop)

@@ -6,7 +6,7 @@ import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 
 import { itemData } from '~/utils/constance'
-import { boxStyle } from '~/components/Content/Content.style'
+import { BoxStyle } from '~/components/Content/Content.style'
 import ContentTop from '~/components/ContentTop'
 import UserAction from '~/components/UserAction'
 
@@ -16,7 +16,7 @@ function Content({ item }) {
             <ContentTop title={item.title} time={item.time} />
             <Typography>{item?.content}</Typography>
             <Stack alignItems="center" sx={{ background: '#444654', padding: 1 }}>
-                <Box sx={boxStyle}>
+                <BoxStyle>
                     <ImageList variant="masonry" cols={3} gap={8}>
                         {itemData.map((item) => (
                             <ImageListItem key={item.img}>
@@ -29,11 +29,11 @@ function Content({ item }) {
                             </ImageListItem>
                         ))}
                     </ImageList>
-                </Box>
+                </BoxStyle>
             </Stack>
             <UserAction itemData={itemData} />
         </Stack>
     )
 }
 
-export default Content
+export default React.memo(Content)
