@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 
-const BoxStyle = styled(Box)(() => ({
+const BoxStyle = styled(Box)(({ theme }) => ({
     width: 500,
     height: 450,
     overflowY: 'scroll',
@@ -9,7 +9,7 @@ const BoxStyle = styled(Box)(() => ({
         display: 'none',
     },
     background: '#101418',
-    padding: 1,
+    padding: theme.spacing(1),
 }))
 
 export { BoxStyle }
