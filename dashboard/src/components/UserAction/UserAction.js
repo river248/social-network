@@ -1,36 +1,33 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Stack from '@mui/material/Stack'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied'
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble'
 import ShareIcon from '@mui/icons-material/Share'
-import Button from '@mui/material/Button'
+import { Button as ButtonMui } from '@mui/material'
 import { useTheme } from '@mui/material'
 
 function UserAction() {
     const theme = useTheme()
-    const [check, setCheck] = useState(1)
-    const [check1, setCheck1] = useState(1)
-    const [check2, setCheck2] = useState(1)
+    const Button = React.memo(({ children, ...passProps }) => {
+        return <ButtonMui {...passProps}>{children}</ButtonMui>
+    })
     const reactButton = [
         {
             icon: ThumbUpIcon,
-            value: check,
+            value: 1,
             id: 1,
-            onClick: setCheck,
         },
         {
             icon: FavoriteIcon,
-            value: check1,
+            value: 12,
             id: 2,
-            onClick: setCheck1,
         },
         {
             icon: SentimentVeryDissatisfiedIcon,
-            value: check2,
+            value: 31,
             id: 3,
-            onClick: setCheck2,
         },
     ]
     const communtionButton = [
@@ -45,7 +42,7 @@ function UserAction() {
             id: 2,
         },
     ]
-    const action1Button = [
+    const actionButton = [
         {
             icon: ThumbUpIcon,
             value: 'Like',
@@ -62,25 +59,21 @@ function UserAction() {
             id: 3,
         },
     ]
+    const handleMap = (data) => {
+        return (
+            <Stack direction="row" spacing={1}>
+                {data.map((item) => (
+                    <Stack key={item.id} direction="row">
+                        <Button color="inherit" startIcon={<item.icon />}>
+                            {item.value}
+                        </Button>
+                    </Stack>
+                ))}
+            </Stack>
+        )
+    }
 
-    // const handleMap = (data) => {
-    //     return (
-    //         <Stack direction="row" spacing={1}>
-    //             {data.map((item) => (
-    //                 <Button
-    //                     onClick={() => item.onClick((pre) => pre + 1)}
-    //                     key={item.id}
-    //                     color="inherit"
-    //                     endIcon={<item.icon />}
-    //                 >
-    //                     {item.value}
-    //                     {console.log('re-render1')}
-    //                 </Button>
-    //             ))}
-    //         </Stack>
-    //     )
-    // }
-    const handleMap1 = (data) => {
+    const handleMapAction = (data) => {
         return data.map((item) => (
             <Stack key={item.id} direction="row">
                 <Button color="inherit" startIcon={<item.icon />}>
@@ -89,30 +82,12 @@ function UserAction() {
             </Stack>
         ))
     }
+
     return (
         <Stack spacing={1}>
             <Stack direction="row" justifyContent="space-between" spacing={1}>
-                <Stack direction="row" spacing={1}>
-                    {reactButton.map((item) => (
-                        <Button
-                            onClick={() => item.onClick((pre) => pre + 1)}
-                            key={item.id}
-                            color="inherit"
-                            endIcon={<item.icon />}
-                        >
-                            {item.value}
-                            {console.log('re-render1')}
-                        </Button>
-                    ))}
-                </Stack>
-                <Stack direction="row" spacing={1}>
-                    {communtionButton.map((item) => (
-                        <Button key={item.id} color="inherit" endIcon={<item.icon />}>
-                            {item.value}
-                            {console.log('re-render1')}
-                        </Button>
-                    ))}
-                </Stack>
+                {handleMap(reactButton)}
+                {handleMap(communtionButton)}
             </Stack>
             <Stack
                 direction="row"
@@ -124,10 +99,10 @@ function UserAction() {
                 }}
                 padding={1}
             >
-                {handleMap1(action1Button)}
+                {handleMapAction(actionButton)}
             </Stack>
         </Stack>
     )
 }
 
-export default UserAction
+export default React.memo(UserAction)

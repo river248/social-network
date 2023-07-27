@@ -16,4 +16,4 @@ function InfiniteScroll({ data }) {
     )
 }
 
-export default InfiniteScroll
+export default React.memo(InfiniteScroll)
