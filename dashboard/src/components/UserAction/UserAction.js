@@ -107,12 +107,7 @@ function UserAction() {
                 </Stack>
                 <Stack direction="row" spacing={1}>
                     {communtionButton.map((item) => (
-                        <Button
-                            onClick={() => item.onClick((pre) => pre + 1)}
-                            key={item.id}
-                            color="inherit"
-                            endIcon={<item.icon />}
-                        >
+                        <Button key={item.id} color="inherit" endIcon={<item.icon />}>
                             {item.value}
                             {console.log('re-render1')}
                         </Button>
