@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
+import PropTypes from 'prop-types'
 
 import { itemData } from '~/utils/constance'
 import { BoxStyle } from '~/components/Content/Content.style'
@@ -33,6 +34,16 @@ function Content({ item }) {
             <UserAction itemData={itemData} />
         </Stack>
     )
+}
+
+Content.propTypes = {
+    item: PropTypes.shape({
+        id: PropTypes.number,
+        title: PropTypes.string,
+        name: PropTypes.string,
+        content: PropTypes.string,
+        time: PropTypes.number,
+    }),
 }
 
 export default React.memo(Content)

@@ -2,10 +2,11 @@ import React from 'react'
 import Avatar from '@mui/material/Avatar'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import { useTheme } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
+import PropTypes from 'prop-types'
 
 import { StyledBadge } from './FriendComponent.style'
-
+;``
 function FriendComponent({ item }) {
     const theme = useTheme()
 
@@ -21,6 +22,14 @@ function FriendComponent({ item }) {
             <Typography sx={{ cursor: 'pointer', color: theme.palette.common.black }}>{item.name}</Typography>
         </Stack>
     )
+}
+
+FriendComponent.propTypes = {
+    item: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        avata: PropTypes.string.isRequired,
+        id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    }),
 }
 
 export default React.memo(FriendComponent)
