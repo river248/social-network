@@ -6,7 +6,6 @@ import { useTheme } from '@mui/material/styles'
 import PropTypes from 'prop-types'
 
 import { StyledBadge } from './FriendComponent.style'
-;``
 function FriendComponent({ item }) {
     const theme = useTheme()
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Stack from '@mui/material/Stack'
-import { Button as ButtonMui } from '@mui/material'
+import Button from '@mui/material/Button'
 import { useTheme } from '@mui/material/styles'
 import PropTypes from 'prop-types'
 
@@ -8,9 +8,6 @@ import GroupButton from '~/components/GroupButton'
 import { actionButton, communtionButton, reactButton } from '~/utils/constance'
 function UserAction() {
     const theme = useTheme()
-    const Button = React.memo(({ children, ...passProps }) => {
-        return <ButtonMui {...passProps}>{children}</ButtonMui>
-    })
 
     return (
         <Stack spacing={1}>
