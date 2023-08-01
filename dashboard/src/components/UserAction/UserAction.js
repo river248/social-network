@@ -1,21 +1,19 @@
 import React from 'react'
 import Stack from '@mui/material/Stack'
-import Button from '@mui/material/Button'
 import { useTheme } from '@mui/material/styles'
 import PropTypes from 'prop-types'
 
-import GroupButton from '~/components/GroupButton'
-import { actionButton, communtionButton, reactButton } from '~/utils/constance'
-function UserAction() {
+import ReactButtons from '~/components/ReactButtons'
+function UserAction({ reacts, communtions, actions }) {
     const theme = useTheme()
 
     return (
         <Stack spacing={1}>
             <Stack direction="row" justifyContent="space-between" spacing={1}>
-                <GroupButton groupButton={reactButton} />
-                <GroupButton groupButton={communtionButton} />
+                <ReactButtons items={reacts} />
+                <ReactButtons items={communtions} />
             </Stack>
-            <Stack
+            <ReactButtons
                 direction="row"
                 justifyContent="space-around"
                 spacing={1}
@@ -24,21 +22,28 @@ function UserAction() {
                     borderBottom: `1px solid ${theme.palette.common.white}`,
                 }}
                 padding={1}
-            >
-                {actionButton.map((item) => (
-                    <Stack key={item.id} direction="row">
-                        <Button color="inherit" startIcon={<item.icon />}>
-                            {item.value}
-                        </Button>
-                    </Stack>
-                ))}
-            </Stack>
+                items={actions}
+            />
         </Stack>
     )
 }
 
 UserAction.propTypes = {
-    groupButton: PropTypes.arrayOf(
+    reacts: PropTypes.arrayOf(
+        PropTypes.shape({
+            icon: PropTypes.elementType,
+            value: PropTypes.number,
+            id: PropTypes.number,
+        }),
+    ),
+    communtions: PropTypes.arrayOf(
+        PropTypes.shape({
+            icon: PropTypes.elementType,
+            value: PropTypes.number,
+            id: PropTypes.number,
+        }),
+    ),
+    actions: PropTypes.arrayOf(
         PropTypes.shape({
             icon: PropTypes.elementType,
             value: PropTypes.number,

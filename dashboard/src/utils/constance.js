@@ -1,9 +1,3 @@
-import ThumbUpIcon from '@mui/icons-material/ThumbUp'
-import FavoriteIcon from '@mui/icons-material/Favorite'
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied'
-import ChatBubbleIcon from '@mui/icons-material/ChatBubble'
-import ShareIcon from '@mui/icons-material/Share'
-
 export const fakeDataListChat = [
     {
         name: 'Nhân vật 1',
@@ -158,51 +152,4 @@ export const itemData = [
     //     img: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4',
     //     title: 'Coffee table',
     // },
-]
-
-export const reactButton = [
-    {
-        icon: ThumbUpIcon,
-        value: 1,
-        id: 1,
-    },
-    {
-        icon: FavoriteIcon,
-        value: 12,
-        id: 2,
-    },
-    {
-        icon: SentimentVeryDissatisfiedIcon,
-        value: 31,
-        id: 3,
-    },
-]
-export const communtionButton = [
-    {
-        icon: ChatBubbleIcon,
-        value: 4,
-        id: 1,
-    },
-    {
-        icon: ShareIcon,
-        value: 23,
-        id: 2,
-    },
-]
-export const actionButton = [
-    {
-        icon: ThumbUpIcon,
-        value: 'Like',
-        id: 1,
-    },
-    {
-        icon: ChatBubbleIcon,
-        value: 'Comment',
-        id: 2,
-    },
-    {
-        icon: ShareIcon,
-        value: 'Share',
-        id: 3,
-    },
 ]

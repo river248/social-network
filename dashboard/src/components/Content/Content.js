@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 import { itemData } from '~/utils/constance'
 import { BoxStyle } from '~/components/Content/Content.style'
 import ContentTop from '~/components/ContentTop'
-import UserAction from '~/components/UserAction'
+import UserActionContainer from '~/containers/UserActionContainer'
 
 function Content({ item }) {
     return (
@@ -31,7 +31,7 @@ function Content({ item }) {
                     </ImageList>
                 </BoxStyle>
             </Stack>
-            <UserAction itemData={itemData} />
+            <UserActionContainer />
         </Stack>
     )
 }
