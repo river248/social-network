@@ -46,7 +46,7 @@ UserAction.propTypes = {
     actions: PropTypes.arrayOf(
         PropTypes.shape({
             icon: PropTypes.elementType,
-            value: PropTypes.number,
+            value: PropTypes.string,
             id: PropTypes.number,
         }),
     ),
