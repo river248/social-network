@@ -1,39 +1,20 @@
 import React from 'react'
 import Stack from '@mui/material/Stack'
-import ThumbUpIcon from '@mui/icons-material/ThumbUp'
-import FavoriteIcon from '@mui/icons-material/Favorite'
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied'
-import ChatBubbleIcon from '@mui/icons-material/ChatBubble'
-import ShareIcon from '@mui/icons-material/Share'
-import Button from '@mui/material/Button'
-import { useTheme } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
+import PropTypes from 'prop-types'
 
-function UserAction() {
+import ReactButtons from '~/components/ReactButtons'
+
+function UserAction({ reacts, communtions, actions }) {
     const theme = useTheme()
+
     return (
         <Stack spacing={1}>
             <Stack direction="row" justifyContent="space-between" spacing={1}>
-                <Stack direction="row" spacing={1}>
-                    <Button color="inherit" endIcon={<ThumbUpIcon />}>
-                        1
-                    </Button>
-                    <Button color="inherit" endIcon={<FavoriteIcon />}>
-                        1
-                    </Button>
-                    <Button color="inherit" endIcon={<SentimentVeryDissatisfiedIcon />}>
-                        1
-                    </Button>
-                </Stack>
-                <Stack direction="row" spacing={1}>
-                    <Button color="inherit" endIcon={<ChatBubbleIcon />}>
-                        12
-                    </Button>
-                    <Button color="inherit" endIcon={<ShareIcon />}>
-                        13
-                    </Button>
-                </Stack>
+                <ReactButtons items={reacts} />
+                <ReactButtons items={communtions} />
             </Stack>
-            <Stack
+            <ReactButtons
                 direction="row"
                 justifyContent="space-around"
                 spacing={1}
@@ -42,25 +23,34 @@ function UserAction() {
                     borderBottom: `1px solid ${theme.palette.common.white}`,
                 }}
                 padding={1}
-            >
-                <Stack direction="row">
-                    <Button color="inherit" startIcon={<ThumbUpIcon />}>
-                        Like
-                    </Button>
-                </Stack>
-                <Stack direction="row">
-                    <Button color="inherit" startIcon={<ChatBubbleIcon />}>
-                        Comment
-                    </Button>
-                </Stack>
-                <Stack direction="row">
-                    <Button color="inherit" startIcon={<ShareIcon />}>
-                        Share
-                    </Button>
-                </Stack>
-            </Stack>
+                items={actions}
+            />
         </Stack>
     )
 }
 
-export default UserAction
+UserAction.propTypes = {
+    reacts: PropTypes.arrayOf(
+        PropTypes.shape({
+            icon: PropTypes.elementType,
+            value: PropTypes.number,
+            id: PropTypes.number,
+        }),
+    ),
+    communtions: PropTypes.arrayOf(
+        PropTypes.shape({
+            icon: PropTypes.elementType,
+            value: PropTypes.number,
+            id: PropTypes.number,
+        }),
+    ),
+    actions: PropTypes.arrayOf(
+        PropTypes.shape({
+            icon: PropTypes.elementType,
+            value: PropTypes.string,
+            id: PropTypes.number,
+        }),
+    ),
+}
+
+export default React.memo(UserAction)

@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
+import PropTypes from 'prop-types'
 
 import { convertTimestampToDate } from '~/utils/helper'
 
@@ -20,6 +21,11 @@ function ContentTop({ title, time }) {
             </Stack>
         </Stack>
     )
+}
+
+ContentTop.propTypes = {
+    title: PropTypes.string,
+    time: PropTypes.number,
 }
 
 export default React.memo(ContentTop)

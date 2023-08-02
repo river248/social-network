@@ -1,5 +1,6 @@
 import React from 'react'
 import Stack from '@mui/material/Stack'
+import PropTypes from 'prop-types'
 
 import Content from '~/components/Content'
 
@@ -16,4 +17,16 @@ function InfiniteScroll({ data }) {
     )
 }
 
-export default InfiniteScroll
+InfiniteScroll.propTypes = {
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number,
+            title: PropTypes.string,
+            name: PropTypes.string,
+            content: PropTypes.string,
+            time: PropTypes.number,
+        }),
+    ),
+}
+
+export default React.memo(InfiniteScroll)
