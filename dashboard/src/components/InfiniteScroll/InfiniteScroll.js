@@ -2,7 +2,7 @@ import React from 'react'
 import Stack from '@mui/material/Stack'
 import PropTypes from 'prop-types'
 
-import Content from '~/components/Content'
+import PostItem from '~/components/PostItem'
 
 function InfiniteScroll({ data }) {
     // logic reload api
@@ -10,7 +10,7 @@ function InfiniteScroll({ data }) {
         <Stack width="55%" margin={2}>
             <Stack justifyContent="center" spacing={3}>
                 {data.map((item) => (
-                    <Content item={item} key={item.id} />
+                    <PostItem item={item} key={item.id} />
                 ))}
             </Stack>
         </Stack>

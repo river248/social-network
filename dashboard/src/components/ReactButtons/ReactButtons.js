@@ -21,7 +21,7 @@ ReactButtons.propTypes = {
     items: PropTypes.arrayOf(
         PropTypes.shape({
             icon: PropTypes.elementType,
-            value: PropTypes.number,
+            value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
             id: PropTypes.number,
         }),
     ),

@@ -6,17 +6,17 @@ import ImageListItem from '@mui/material/ImageListItem'
 import PropTypes from 'prop-types'
 
 import { itemData } from '~/utils/constance'
-import { BoxStyle } from '~/components/Content/Content.style'
-import ContentTop from '~/components/ContentTop'
+import { PostMedia } from '~/components/PostItem/PostItem.style'
+import PostContent from '~/components/PostContent'
 import UserActionContainer from '~/containers/UserActionContainer'
 
-function Content({ item }) {
+function PostItem({ item }) {
     return (
         <Stack sx={{ background: '#3a3b3c', padding: 2, borderRadius: 4 }} spacing={1}>
-            <ContentTop title={item.title} time={item.time} />
+            <PostContent title={item.title} time={item.time} />
             <Typography>{item.content}</Typography>
             <Stack alignItems="center" sx={{ background: '#444654', padding: 1 }}>
-                <BoxStyle>
+                <PostMedia>
                     <ImageList variant="masonry" cols={3} gap={8}>
                         {itemData.map((item) => (
                             <ImageListItem key={item.img}>
@@ -29,14 +29,14 @@ function Content({ item }) {
                             </ImageListItem>
                         ))}
                     </ImageList>
-                </BoxStyle>
+                </PostMedia>
             </Stack>
             <UserActionContainer />
         </Stack>
     )
 }
 
-Content.propTypes = {
+PostItem.propTypes = {
     item: PropTypes.shape({
         id: PropTypes.number,
         title: PropTypes.string,
@@ -46,4 +46,4 @@ Content.propTypes = {
     }),
 }
 
-export default React.memo(Content)
+export default React.memo(PostItem)

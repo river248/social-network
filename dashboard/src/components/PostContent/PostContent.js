@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 import { convertTimestampToDate } from '~/utils/helper'
 
-function ContentTop({ title, time }) {
+function PostContent({ title, time }) {
     const date = useMemo(() => convertTimestampToDate(time), [time])
 
     return (
@@ -23,9 +23,9 @@ function ContentTop({ title, time }) {
     )
 }
 
-ContentTop.propTypes = {
+PostContent.propTypes = {
     title: PropTypes.string,
     time: PropTypes.number,
 }
 
-export default React.memo(ContentTop)
+export default React.memo(PostContent)
