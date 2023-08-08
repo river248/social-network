@@ -7,8 +7,6 @@ import PropTypes from 'prop-types'
 import { convertTimestampToDate } from '~/utils/helper'
 
 function PostContent({ title, time }) {
-    const date = useMemo(() => convertTimestampToDate(time), [time])
-
     return (
         <Stack direction="row" spacing={2}>
             <Avatar
@@ -17,7 +15,7 @@ function PostContent({ title, time }) {
             />
             <Stack>
                 <Typography>{title}</Typography>
-                <Typography>{date}</Typography>
+                <Typography>{convertTimestampToDate(time)}</Typography>
             </Stack>
         </Stack>
     )
