@@ -1,9 +1,10 @@
 import { styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 
-const BoxStyle = styled(Box)(({ theme }) => ({
-    width: 500,
-    height: 450,
+const PostMedia = styled(Box)(({ theme }) => ({
+    width: '100%',
+    height: 'auto',
+    maxHeight: 450,
     overflowY: 'scroll',
     '&::-webkit-scrollbar': {
         display: 'none',
@@ -12,4 +13,4 @@ const BoxStyle = styled(Box)(({ theme }) => ({
     padding: theme.spacing(1),
 }))
 
-export { BoxStyle }
+export { PostMedia }
