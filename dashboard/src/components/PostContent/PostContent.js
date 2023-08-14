@@ -5,8 +5,22 @@ import Stack from '@mui/material/Stack'
 import PropTypes from 'prop-types'
 
 import { convertTimestampToDate } from '~/utils/helper'
+import Skeleton from '@mui/material/Skeleton'
 
-function PostContent({ title, time }) {
+function PostContent({ title, time, loading }) {
+    if (loading) {
+        return (
+            <Stack direction="row" spacing={2} alignItems="center">
+                <Skeleton sx={{ flexShrink: 0 }} variant="circular" width={50} height={50} />
+
+                <Stack>
+                    <Skeleton variant="text" sx={{ fontSize: '1rem', width: 80 }} />
+
+                    <Skeleton variant="text" sx={{ fontSize: '1rem', width: 120 }} />
+                </Stack>
+            </Stack>
+        )
+    }
     return (
         <Stack direction="row" spacing={2}>
             <Avatar
@@ -24,6 +38,7 @@ function PostContent({ title, time }) {
 PostContent.propTypes = {
     title: PropTypes.string,
     time: PropTypes.number,
+    loading: PropTypes.bool,
 }
 
 export default React.memo(PostContent)

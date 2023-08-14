@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 
 import PostItem from '~/components/PostItem'
 
-function InfiniteScroll({ data }) {
+function InfiniteScroll({ data, loading }) {
     // logic reload api
     return (
         <Stack width="55%" margin={2}>
             <Stack justifyContent="center" spacing={3}>
                 {data.map((item) => (
-                    <PostItem item={item} key={item.id} />
+                    <PostItem loading={loading} item={item} key={item.id} />
                 ))}
             </Stack>
         </Stack>
