@@ -156,7 +156,7 @@ jobs:
                     -X POST https://ci-cd-github-actions.onrender.com/v1/metric/push-metric
     finish_stage:
         if: ${{ always() }}
-        needs: [code_quality, unit_tests, unit_test_coverage]
+        needs: [start_stage, code_quality, unit_tests, unit_test_coverage]
         runs-on: ubuntu-latest
         steps:
             - name: Slit ref to array.
@@ -169,7 +169,15 @@ jobs:
               uses: actions/checkout@v3
               with:
                   ref: ${{ steps.split.outputs._0 }}
+            - name: Check execution status
+              id: execution
+              run: |
+                  echo status=$(curl -d '{"repository":"social-network","stage":"build","executionId":"${{ github.run_id }}"}' \
+                    -H "Authorization: ${{ secrets.EXECUTION_AUTH }}" \
+                    -H "Content-Type: application/json" \
+                    -X POST https://ci-cd-github-actions.onrender.com/v1/execution/check-execution-status) >>  "$GITHUB_OUTPUT"
             - name: Trigger Test
+              if: needs.code_quality.result != 'cancelled' && needs.unit_tests.result != 'cancelled' && needs.unit_test_coverage.result != 'cancelled' && ((fromJSON(steps.execution.outputs.status).isSuccess == false && steps.split.outputs._0 != 'master') || fromJSON(steps.execution.outputs.status).isSuccess == true)
               run: |
                   curl -L \
                     -X POST \
