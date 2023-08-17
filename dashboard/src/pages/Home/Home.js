@@ -4,20 +4,20 @@ import Stack from '@mui/material/Stack'
 
 import Complementary from '~/components/Complementary'
 import { fetchNewfeeds } from '~/apis'
-import PostItem from '~/components/PostItem/PostItem'
+import PostItem from '~/components/PostItem'
 
 function Home() {
     const arr = useMemo(() => [1, 2, 3, 4, 5, 6, 7, 8, 9], [])
     const [newFeeds, setNewFeeds] = useState([])
-    const [stateLoading, setStateLoading] = useState(false)
-    const [page, _] = useState(1)
+    const [loading, setLoading] = useState(false)
+    const [page, _setPage] = useState(1)
 
     useEffect(() => {
         const callAPI = async () => {
-            setStateLoading(true)
+            setLoading(true)
             const res = await fetchNewfeeds()
             setNewFeeds(res ?? [])
-            setStateLoading(false)
+            setLoading(false)
         }
         callAPI()
     }, [page])
@@ -27,7 +27,7 @@ function Home() {
             <Grid item xs={10} sm={10} md={10} lg={10}>
                 <Stack width="55%" margin={2}>
                     <Stack justifyContent="center" spacing={3}>
-                        {!stateLoading
+                        {!loading
                             ? newFeeds.map((item) => <PostItem item={item} key={item.id} />)
                             : arr.map((item) => <PostItem loading key={item} />)}
                     </Stack>

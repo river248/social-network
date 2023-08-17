@@ -8,7 +8,6 @@ export const fetchNewfeeds = async () => {
         const res = await mockData()
         return res.data
     } catch (error) {
-        console.log('🚀 ~ file: index.js:11 ~ fetchNewfeeds ~ error:', error)
         toast.error(resExceptionMessageHandler(error))
     }
 }
