@@ -10,7 +10,7 @@ function Home() {
     const arr = useMemo(() => [1, 2, 3, 4, 5, 6, 7, 8, 9], [])
     const [newFeeds, setNewFeeds] = useState([])
     const [loading, setLoading] = useState(false)
-    const [page, _setPage] = useState(1)
+    const [page] = useState(1)
 
     useEffect(() => {
         const callAPI = async () => {
