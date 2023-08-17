@@ -2,21 +2,34 @@ import React from 'react'
 import Avatar from '@mui/material/Avatar'
 import Typography from '@mui/material/Typography'
 import Stack from '@mui/material/Stack'
+import Skeleton from '@mui/material/Skeleton'
 import PropTypes from 'prop-types'
+import { useTheme } from '@mui/material/styles'
 
 import { convertTimestampToDate } from '~/utils/helper'
-import Skeleton from '@mui/material/Skeleton'
 
 function PostContent({ title, time, loading }) {
+    const theme = useTheme()
     if (loading) {
         return (
             <Stack direction="row" spacing={2} alignItems="center">
-                <Skeleton sx={{ flexShrink: 0 }} variant="circular" width={50} height={50} />
+                <Skeleton
+                    sx={{ flexShrink: 0, background: `${theme.palette.secondary.gray}` }}
+                    variant="circular"
+                    width={50}
+                    height={50}
+                />
 
                 <Stack>
-                    <Skeleton variant="text" sx={{ fontSize: '1rem', width: 80 }} />
+                    <Skeleton
+                        variant="text"
+                        sx={{ fontSize: '1rem', width: 80, background: `${theme.palette.secondary.gray}` }}
+                    />
 
-                    <Skeleton variant="text" sx={{ fontSize: '1rem', width: 120 }} />
+                    <Skeleton
+                        variant="text"
+                        sx={{ fontSize: '1rem', width: 120, background: `${theme.palette.secondary.gray}` }}
+                    />
                 </Stack>
             </Stack>
         )
