@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack'
 import Skeleton from '@mui/material/Skeleton'
 import { useTheme } from '@mui/material/styles'
 import { PropTypes } from 'prop-types'
+
 function ReactButtons({ items, skeletonItems, loading, ...passProps }) {
     const theme = useTheme()
 
@@ -13,8 +14,8 @@ function ReactButtons({ items, skeletonItems, loading, ...passProps }) {
                 {skeletonItems.map((item) => (
                     <Skeleton
                         key={item}
-                        variant="rectangular"
-                        sx={{ width: 60, height: 20, background: `${theme.palette.secondary.gray}` }}
+                        variant="rounded"
+                        sx={{ width: 60, height: 20, background: theme.palette.secondary.gray }}
                     />
                 ))}
             </Stack>

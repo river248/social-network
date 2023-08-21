@@ -11,7 +11,7 @@ import { itemData } from '~/utils/constance'
 import { PostMedia } from '~/components/PostItem/PostItem.style'
 import PostContent from '~/components/PostContent'
 import UserActionContainer from '~/containers/UserActionContainer'
-import UserAction from '~/components/UserAction/UserAction'
+import UserAction from '~/components/UserAction'
 
 function PostItem({ item, loading }) {
     const theme = useTheme()
@@ -22,12 +22,12 @@ function PostItem({ item, loading }) {
                 <PostContent loading />
                 <Skeleton
                     variant="text"
-                    sx={{ fontSize: '2rem', width: '50%', background: `${theme.palette.secondary.gray}` }}
+                    sx={{ fontSize: '2rem', width: '50%', background: theme.palette.secondary.gray }}
                 />
                 <Stack alignItems="center" sx={{ background: '#444654', padding: 2 }}>
                     <Skeleton
-                        variant="rectangular"
-                        sx={{ width: '100%', paddingTop: '45%', background: `${theme.palette.secondary.gray}` }}
+                        variant="rounded"
+                        sx={{ width: '100%', paddingTop: '45%', background: theme.palette.secondary.gray }}
                     />
                 </Stack>
                 <UserAction loading />

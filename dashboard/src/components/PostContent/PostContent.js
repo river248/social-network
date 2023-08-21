@@ -14,7 +14,7 @@ function PostContent({ title, time, loading }) {
         return (
             <Stack direction="row" spacing={2} alignItems="center">
                 <Skeleton
-                    sx={{ flexShrink: 0, background: `${theme.palette.secondary.gray}` }}
+                    sx={{ flexShrink: 0, background: theme.palette.secondary.gray }}
                     variant="circular"
                     width={50}
                     height={50}
@@ -23,12 +23,12 @@ function PostContent({ title, time, loading }) {
                 <Stack>
                     <Skeleton
                         variant="text"
-                        sx={{ fontSize: '1rem', width: 80, background: `${theme.palette.secondary.gray}` }}
+                        sx={{ fontSize: '1rem', width: 80, background: theme.palette.secondary.gray }}
                     />
 
                     <Skeleton
                         variant="text"
-                        sx={{ fontSize: '1rem', width: 120, background: `${theme.palette.secondary.gray}` }}
+                        sx={{ fontSize: '1rem', width: 120, background: theme.palette.secondary.gray }}
                     />
                 </Stack>
             </Stack>
