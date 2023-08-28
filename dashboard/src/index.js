@@ -27,6 +27,7 @@ root.render(
                     style={{ width: '100%', maxWidth: '20rem', marginTop: '3.125rem' }}
                     closeButton={true}
                     toastStyle={{ fontSize: 15, fontFamily: 'Segoe UI' }}
+                    theme="colored"
                     transition={Slide}
                     limit={3}
                     rtl={false}
