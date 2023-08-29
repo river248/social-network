@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 
-const PostMedia = styled(Box)(({}) => ({
+const PostMedia = styled(Box)(() => ({
     width: '100%',
     height: 'auto',
     overflowY: 'hidden',
