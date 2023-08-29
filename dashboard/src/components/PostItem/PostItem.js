@@ -12,6 +12,7 @@ import { PostMedia } from '~/components/PostItem/PostItem.style'
 import PostContent from '~/components/PostContent'
 import UserActionContainer from '~/containers/UserActionContainer'
 import UserAction from '~/components/UserAction'
+import ImageItems from '~/containers/ImageItems/ImageItems'
 
 function PostItem({ item, loading }) {
     const theme = useTheme()
@@ -41,18 +42,7 @@ function PostItem({ item, loading }) {
             <Typography>{item.content}</Typography>
             <Stack alignItems="center" sx={{ background: '#444654', padding: 1 }}>
                 <PostMedia>
-                    <ImageList variant="masonry" cols={3} gap={8}>
-                        {itemData.map((item) => (
-                            <ImageListItem key={item.img}>
-                                <img
-                                    src={`${item.img}?w=248&fit=crop&auto=format`}
-                                    srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                    alt={item.title}
-                                    loading="lazy"
-                                />
-                            </ImageListItem>
-                        ))}
-                    </ImageList>
+                    <ImageItems listImages={itemData} />
                 </PostMedia>
             </Stack>
             <UserActionContainer />
