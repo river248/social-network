@@ -1,14 +1,12 @@
 import React from 'react'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import ImageList from '@mui/material/ImageList'
-import ImageListItem from '@mui/material/ImageListItem'
 import Skeleton from '@mui/material/Skeleton'
 import PropTypes from 'prop-types'
 import { useTheme } from '@mui/material/styles'
 
 import { itemData } from '~/utils/constance'
-import { PostMedia } from '~/components/PostItem/PostItem.style'
+import { ContainerMoreImage, NumberImages, PostMedia } from '~/components/PostItem/PostItem.style'
 import PostContent from '~/components/PostContent'
 import UserActionContainer from '~/containers/UserActionContainer'
 import UserAction from '~/components/UserAction'
@@ -40,9 +38,16 @@ function PostItem({ item, loading }) {
         <Stack sx={{ background: '#3a3b3c', padding: 2, borderRadius: 4 }} spacing={1}>
             <PostContent title={item.title} time={item.time} />
             <Typography>{item.content}</Typography>
-            <Stack alignItems="center" sx={{ background: '#444654', padding: 1 }}>
+            <Stack alignItems="center" sx={{ background: '#000000', padding: 1 }}>
                 <PostMedia>
                     <ImageItems listImages={itemData} />
+                    {itemData.length > 2 && (
+                        <ContainerMoreImage justifyContent="center" alignItems="center">
+                            <NumberImages justifyContent="center" alignItems="center">
+                                {itemData.length - 2} +
+                            </NumberImages>
+                        </ContainerMoreImage>
+                    )}
                 </PostMedia>
             </Stack>
             <UserActionContainer />
