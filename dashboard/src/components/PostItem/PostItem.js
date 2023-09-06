@@ -5,12 +5,10 @@ import Skeleton from '@mui/material/Skeleton'
 import PropTypes from 'prop-types'
 import { useTheme } from '@mui/material/styles'
 
-import { itemData } from '~/utils/constance'
-import { ContainerMoreImage, NumberImages, PostMedia } from '~/components/PostItem/PostItem.style'
 import PostContent from '~/components/PostContent'
-import UserActionContainer from '~/containers/UserActionContainer'
 import UserAction from '~/components/UserAction'
-import ImageItems from '~/containers/ImageItems/ImageItems'
+import UserActionContainer from '~/containers/UserActionContainer'
+import PostMediaContainer from '~/containers/PostMediaContainer'
 
 function PostItem({ item, loading }) {
     const theme = useTheme()
@@ -39,16 +37,7 @@ function PostItem({ item, loading }) {
             <PostContent title={item.title} time={item.time} />
             <Typography>{item.content}</Typography>
             <Stack alignItems="center" sx={{ background: '#000000', padding: 1 }}>
-                <PostMedia>
-                    <ImageItems listImages={itemData} />
-                    {itemData.length > 2 && (
-                        <ContainerMoreImage justifyContent="center" alignItems="center">
-                            <NumberImages justifyContent="center" alignItems="center">
-                                {itemData.length - 2} +
-                            </NumberImages>
-                        </ContainerMoreImage>
-                    )}
-                </PostMedia>
+                <PostMediaContainer />
             </Stack>
             <UserActionContainer />
         </Stack>
