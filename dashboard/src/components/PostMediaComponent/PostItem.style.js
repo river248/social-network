@@ -11,6 +11,7 @@ const PostMedia = styled(Box)(() => ({
         display: 'none',
     },
     position: 'relative',
+    maxHeight: 520,
 }))
 const ContainerMoreImage = styled(Stack)(({ theme }) => ({
     height: '100%',
@@ -22,8 +23,8 @@ const ContainerMoreImage = styled(Stack)(({ theme }) => ({
     opacity: 0.5,
 }))
 const NumberImages = styled(Stack)(({ theme }) => ({
-    height: '50px',
-    width: '50px',
+    height: 50,
+    width: 50,
     borderRadius: 50,
     background: theme.palette.common.white,
     color: theme.palette.common.black,

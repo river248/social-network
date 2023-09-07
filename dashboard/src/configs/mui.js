@@ -4,7 +4,14 @@ const theme = extendTheme({
     colorSchemes: {
         light: {
             palette: {
-                secondary: { main: '#096386', light: '#00b7a8', dark: '#0c084c', gray: '#a5a5a5' },
+                secondary: {
+                    main: '#096386',
+                    light: '#00b7a8',
+                    dark: '#0c084c',
+                    gray: '#a5a5a5',
+                    gray2: '#3a3b3c',
+                    gray3: '#444654',
+                },
             },
         },
     },

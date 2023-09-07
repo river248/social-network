@@ -15,13 +15,13 @@ function PostItem({ item, loading }) {
 
     if (loading) {
         return (
-            <Stack sx={{ background: '#3a3b3c', padding: 2, borderRadius: 4 }} spacing={2}>
+            <Stack sx={{ background: theme.palette.secondary.gray2, padding: 2, borderRadius: 4 }} spacing={2}>
                 <PostContent loading />
                 <Skeleton
                     variant="text"
                     sx={{ fontSize: '2rem', width: '50%', background: theme.palette.secondary.gray }}
                 />
-                <Stack alignItems="center" sx={{ background: '#444654', padding: 2 }}>
+                <Stack alignItems="center" sx={{ background: theme.palette.secondary.gray3, padding: 2 }}>
                     <Skeleton
                         variant="rounded"
                         sx={{ width: '100%', paddingTop: '45%', background: theme.palette.secondary.gray }}
@@ -33,10 +33,10 @@ function PostItem({ item, loading }) {
     }
 
     return (
-        <Stack sx={{ background: '#3a3b3c', padding: 2, borderRadius: 4 }} spacing={1}>
+        <Stack sx={{ background: theme.palette.secondary.gray2, padding: 2, borderRadius: 4 }} spacing={1}>
             <PostContent title={item.title} time={item.time} />
             <Typography>{item.content}</Typography>
-            <Stack alignItems="center" sx={{ background: '#000000', padding: 1 }}>
+            <Stack alignItems="center" sx={{ background: theme.palette.common.black, padding: 1 }}>
                 <PostMediaContainer />
             </Stack>
             <UserActionContainer />

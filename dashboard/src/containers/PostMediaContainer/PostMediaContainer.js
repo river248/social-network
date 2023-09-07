@@ -1,22 +1,28 @@
-import React from 'react'
+import React, { Fragment, useCallback, useMemo, useState } from 'react'
 
 import { itemData } from '~/utils/constance'
-import { ContainerMoreImage, NumberImages, PostMedia } from '~/containers/PostMediaContainer/PostItem.style'
-import ImageItems from '~/containers/ImageItems/ImageItems'
+import ModelShowItem from '~/components/ModelShowItem'
+import PostMediaComponent from '~/components/PostMediaComponent'
 
 function PostMediaContainer() {
+    const [open, setOpen] = useState(false)
+
+    const memoizedItemData = useMemo(() => itemData, [])
+
+    const handleOpen = useCallback(() => {
+        setOpen(true)
+    }, [])
+
+    const handleClose = useCallback(() => {
+        setOpen(false)
+    }, [])
+
     return (
-        <PostMedia>
-            <ImageItems listImages={itemData} />
-            {itemData.length > 2 && (
-                <ContainerMoreImage justifyContent="center" alignItems="center">
-                    <NumberImages justifyContent="center" alignItems="center">
-                        {itemData.length - 2} +
-                    </NumberImages>
-                </ContainerMoreImage>
-            )}
-        </PostMedia>
+        <Fragment>
+            <PostMediaComponent handleOpen={handleOpen} listImages={memoizedItemData} />
+            {open && <ModelShowItem handleClose={handleClose} open={open} listImages={memoizedItemData} />}
+        </Fragment>
     )
 }
 
-export default PostMediaContainer
+export default React.memo(PostMediaContainer)
