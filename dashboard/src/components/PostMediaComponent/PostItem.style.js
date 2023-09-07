@@ -12,6 +12,7 @@ const PostMedia = styled(Box)(() => ({
     },
     position: 'relative',
     maxHeight: 520,
+    cursor: 'pointer',
 }))
 const ContainerMoreImage = styled(Stack)(({ theme }) => ({
     height: '100%',
