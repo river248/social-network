@@ -7,7 +7,7 @@ import PostMedia from '~/components/PostMedia'
 function PostMediaContainer() {
     const [open, setOpen] = useState(false)
 
-    const memoizedItemData = useMemo(() => (itemData ? itemData : []), [])
+    const memoizedItemData = useMemo(() => itemData || [], [])
 
     const handleOpen = useCallback(() => {
         setOpen(true)
