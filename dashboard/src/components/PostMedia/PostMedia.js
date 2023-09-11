@@ -1,34 +1,34 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import { ContainerMoreImage, NumberImages, PostMedia } from '~/components/PostMediaComponent/PostItem.style'
+import { ContainerMoreImage, NumberImages, PostMediaItem } from '~/components/PostMedia/PostItem.style'
 import ImageItems from '~/containers/ImageItems'
 
-function PostMediaComponent({ handleOpen, listImages }) {
+function PostMediaComponent({ onOpen, images }) {
     return (
         <Fragment>
-            <PostMedia onClick={handleOpen}>
-                <ImageItems listImages={listImages} />
-                {listImages.length > 2 && (
+            <PostMediaItem onClick={onOpen}>
+                <ImageItems images={images} />
+                {images.length > 2 && (
                     <ContainerMoreImage justifyContent="center" alignItems="center">
                         <NumberImages justifyContent="center" alignItems="center">
-                            {listImages.length - 2} +
+                            {images.length - 2} +
                         </NumberImages>
                     </ContainerMoreImage>
                 )}
-            </PostMedia>
+            </PostMediaItem>
         </Fragment>
     )
 }
 
 PostMediaComponent.propTypes = {
-    listImages: PropTypes.arrayOf(
+    images: PropTypes.arrayOf(
         PropTypes.shape({
             img: PropTypes.string,
             title: PropTypes.string,
         }),
     ),
-    handleOpen: PropTypes.func,
+    onOpen: PropTypes.func,
 }
 
 export default React.memo(PostMediaComponent)

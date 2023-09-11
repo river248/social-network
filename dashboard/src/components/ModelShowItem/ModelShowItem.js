@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import Stack from '@mui/material/Stack'
 import Modal from '@mui/material/Modal'
 
-function ModelShowItem({ open, handleClose, listImages = [] }) {
+function ModelShowItem({ open, onClose, images }) {
     return (
         <Stack>
-            <Modal open={open} onClose={handleClose}>
+            <Modal open={open} onClose={onClose}>
                 <Stack>
-                    {listImages.map((item) => (
+                    {images.map((item) => (
                         <Stack key={item.img}>{item.title}</Stack>
                     ))}
                 </Stack>
@@ -19,8 +19,8 @@ function ModelShowItem({ open, handleClose, listImages = [] }) {
 
 ModelShowItem.propTypes = {
     open: PropTypes.bool,
-    handleClose: PropTypes.func,
-    listImages: PropTypes.arrayOf(
+    onClose: PropTypes.func,
+    images: PropTypes.arrayOf(
         PropTypes.shape({
             img: PropTypes.string,
             title: PropTypes.string,

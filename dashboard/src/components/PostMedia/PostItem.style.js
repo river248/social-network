@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 
-const PostMedia = styled(Box)(() => ({
+const PostMediaItem = styled(Box)(() => ({
     width: '100%',
     height: 'auto',
     overflowY: 'hidden',
@@ -32,4 +32,4 @@ const NumberImages = styled(Stack)(({ theme }) => ({
     fontSize: 20,
     fontWeight: 700,
 }))
-export { PostMedia, ContainerMoreImage, NumberImages }
+export { PostMediaItem, ContainerMoreImage, NumberImages }

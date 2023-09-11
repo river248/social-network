@@ -2,12 +2,12 @@ import React, { Fragment, useCallback, useMemo, useState } from 'react'
 
 import { itemData } from '~/utils/constance'
 import ModelShowItem from '~/components/ModelShowItem'
-import PostMediaComponent from '~/components/PostMediaComponent'
+import PostMedia from '~/components/PostMedia'
 
 function PostMediaContainer() {
     const [open, setOpen] = useState(false)
 
-    const memoizedItemData = useMemo(() => itemData, [])
+    const memoizedItemData = useMemo(() => (itemData ? itemData : []), [])
 
     const handleOpen = useCallback(() => {
         setOpen(true)
@@ -19,8 +19,8 @@ function PostMediaContainer() {
 
     return (
         <Fragment>
-            <PostMediaComponent handleOpen={handleOpen} listImages={memoizedItemData} />
-            {open && <ModelShowItem handleClose={handleClose} open={open} listImages={memoizedItemData} />}
+            <PostMedia onOpen={handleOpen} images={memoizedItemData} />
+            <ModelShowItem onClose={handleClose} open={open} images={memoizedItemData} />
         </Fragment>
     )
 }
