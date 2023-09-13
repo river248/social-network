@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Stack from '@mui/material/Stack'
 import Modal from '@mui/material/Modal'
 
-function ModelShowItem({ open, onClose, images }) {
+function ModelShowItem({ open, images, onClose }) {
     return (
         <Stack>
             <Modal open={open} onClose={onClose}>
@@ -19,13 +19,13 @@ function ModelShowItem({ open, onClose, images }) {
 
 ModelShowItem.propTypes = {
     open: PropTypes.bool,
-    onClose: PropTypes.func,
     images: PropTypes.arrayOf(
         PropTypes.shape({
             img: PropTypes.string,
             title: PropTypes.string,
         }),
     ),
+    onClose: PropTypes.func,
 }
 
 export default React.memo(ModelShowItem)

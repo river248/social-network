@@ -16,7 +16,7 @@ function ImageItems({ images }) {
                 <img src={images[1].img} style={{ width: '100%' }} />
             </Stack>
         )
-    return <Fragment></Fragment>
+    return null
 }
 
 ImageItems.propTypes = {

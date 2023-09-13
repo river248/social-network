@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { ContainerMoreImage, NumberImages, PostMediaItem } from '~/components/PostMedia/PostItem.style'
 import ImageItems from '~/containers/ImageItems'
 
-function PostMediaComponent({ onOpen, images }) {
+function PostMedia({ images, onOpen }) {
     return (
         <Fragment>
             <PostMediaItem onClick={onOpen}>
@@ -21,7 +21,7 @@ function PostMediaComponent({ onOpen, images }) {
     )
 }
 
-PostMediaComponent.propTypes = {
+PostMedia.propTypes = {
     images: PropTypes.arrayOf(
         PropTypes.shape({
             img: PropTypes.string,
@@ -31,4 +31,4 @@ PostMediaComponent.propTypes = {
     onOpen: PropTypes.func,
 }
 
-export default React.memo(PostMediaComponent)
+export default React.memo(PostMedia)
