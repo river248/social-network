@@ -86,6 +86,6 @@ export const mockData = async () => {
                 //     },
                 // },
             })
-        }, 2000)
+        }, 1)
     })
 }

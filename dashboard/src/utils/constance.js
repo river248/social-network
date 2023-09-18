@@ -36,14 +36,14 @@ export const itemData = [
         img: 'https://images.unsplash.com/photo-1549388604-817d15aa0110',
         title: 'Bed',
     },
-    // {
-    //     img: 'https://images.unsplash.com/photo-1525097487452-6278ff080c31',
-    //     title: 'Books',
-    // },
-    // {
-    //     img: 'https://images.unsplash.com/photo-1523413651479-597eb2da0ad6',
-    //     title: 'Sink',
-    // },
+    {
+        img: 'https://images.unsplash.com/photo-1525097487452-6278ff080c31',
+        title: 'Books',
+    },
+    {
+        img: 'https://images.unsplash.com/photo-1523413651479-597eb2da0ad6',
+        title: 'Sink',
+    },
     // {
     //     img: 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3',
     //     title: 'Kitchen',

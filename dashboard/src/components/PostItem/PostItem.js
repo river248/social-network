@@ -1,30 +1,27 @@
 import React from 'react'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import ImageList from '@mui/material/ImageList'
-import ImageListItem from '@mui/material/ImageListItem'
 import Skeleton from '@mui/material/Skeleton'
 import PropTypes from 'prop-types'
 import { useTheme } from '@mui/material/styles'
 
-import { itemData } from '~/utils/constance'
-import { PostMedia } from '~/components/PostItem/PostItem.style'
 import PostContent from '~/components/PostContent'
-import UserActionContainer from '~/containers/UserActionContainer'
 import UserAction from '~/components/UserAction'
+import UserActionContainer from '~/containers/UserActionContainer'
+import PostMediaContainer from '~/containers/PostMediaContainer'
 
 function PostItem({ item, loading }) {
     const theme = useTheme()
 
     if (loading) {
         return (
-            <Stack sx={{ background: '#3a3b3c', padding: 2, borderRadius: 4 }} spacing={2}>
+            <Stack sx={{ background: theme.palette.secondary.gray2, padding: 2, borderRadius: 4 }} spacing={2}>
                 <PostContent loading />
                 <Skeleton
                     variant="text"
                     sx={{ fontSize: '2rem', width: '50%', background: theme.palette.secondary.gray }}
                 />
-                <Stack alignItems="center" sx={{ background: '#444654', padding: 2 }}>
+                <Stack alignItems="center" sx={{ background: theme.palette.secondary.gray3, padding: 2 }}>
                     <Skeleton
                         variant="rounded"
                         sx={{ width: '100%', paddingTop: '45%', background: theme.palette.secondary.gray }}
@@ -36,24 +33,11 @@ function PostItem({ item, loading }) {
     }
 
     return (
-        <Stack sx={{ background: '#3a3b3c', padding: 2, borderRadius: 4 }} spacing={1}>
+        <Stack sx={{ background: theme.palette.secondary.gray2, padding: 2, borderRadius: 4 }} spacing={1}>
             <PostContent title={item.title} time={item.time} />
             <Typography>{item.content}</Typography>
-            <Stack alignItems="center" sx={{ background: '#444654', padding: 1 }}>
-                <PostMedia>
-                    <ImageList variant="masonry" cols={3} gap={8}>
-                        {itemData.map((item) => (
-                            <ImageListItem key={item.img}>
-                                <img
-                                    src={`${item.img}?w=248&fit=crop&auto=format`}
-                                    srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                    alt={item.title}
-                                    loading="lazy"
-                                />
-                            </ImageListItem>
-                        ))}
-                    </ImageList>
-                </PostMedia>
+            <Stack alignItems="center" sx={{ background: theme.palette.common.black, padding: 1 }}>
+                <PostMediaContainer />
             </Stack>
             <UserActionContainer />
         </Stack>
