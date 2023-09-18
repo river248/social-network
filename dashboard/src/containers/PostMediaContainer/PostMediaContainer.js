@@ -22,17 +22,9 @@ function PostMediaContainer() {
         (number) => {
             let newImage
             if (number === -1) {
-                if (currentImage === 0) {
-                    newImage = itemData.length - 1
-                } else {
-                    newImage = currentImage - 1
-                }
+                newImage = currentImage === 0 ? itemData.length - 1 : currentImage - 1
             } else {
-                if (currentImage === itemData.length - 1) {
-                    newImage = 0
-                } else {
-                    newImage = currentImage + 1
-                }
+                newImage = currentImage === itemData.length - 1 ? 0 : currentImage + 1
             }
             setCurrentImage(newImage)
         },

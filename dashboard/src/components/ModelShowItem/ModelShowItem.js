@@ -24,10 +24,9 @@ function ModelShowItem({ open, images, currentImage, onClose, onSetCurrentImage 
                 {images.map(
                     (item, index) =>
                         currentImage === index && (
-                            <BoxContainer>
+                            <BoxContainer key={item.img}>
                                 <ModalKeyboardArrowLeftIcon onClick={() => onSetCurrentImage(-1)} />
                                 <img
-                                    key={item.img}
                                     src={item.img}
                                     alt={item.title}
                                     style={{ maxWidth: '85%', maxHeight: '95%', borderRadius: 16 }}
