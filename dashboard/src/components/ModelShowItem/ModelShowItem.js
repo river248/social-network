@@ -1,19 +1,43 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Stack from '@mui/material/Stack'
 import Modal from '@mui/material/Modal'
 
-function ModelShowItem({ open, images, onClose }) {
+import {
+    BoxWrapprer,
+    BoxContainer,
+    ModalKeyboardArrowLeftIcon,
+    ModalKeyboardArrowRightIcon,
+} from './ModelShowItem.style'
+
+function ModelShowItem({ open, images, currentImage, onClose, onSetCurrentImage }) {
     return (
-        <Stack>
-            <Modal open={open} onClose={onClose}>
-                <Stack>
-                    {images.map((item) => (
-                        <Stack key={item.img}>{item.title}</Stack>
-                    ))}
-                </Stack>
-            </Modal>
-        </Stack>
+        <Modal
+            open={open}
+            onClose={onClose}
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}
+        >
+            <BoxWrapprer>
+                {images.map(
+                    (item, index) =>
+                        currentImage === index && (
+                            <BoxContainer>
+                                <ModalKeyboardArrowLeftIcon onClick={() => onSetCurrentImage(-1)} />
+                                <img
+                                    key={item.img}
+                                    src={item.img}
+                                    alt={item.title}
+                                    style={{ maxWidth: '85%', maxHeight: '95%', borderRadius: 16 }}
+                                />
+                                <ModalKeyboardArrowRightIcon onClick={() => onSetCurrentImage(+1)} />
+                            </BoxContainer>
+                        ),
+                )}
+            </BoxWrapprer>
+        </Modal>
     )
 }
 
@@ -25,7 +49,9 @@ ModelShowItem.propTypes = {
             title: PropTypes.string,
         }),
     ),
+    currentImage: PropTypes.number,
     onClose: PropTypes.func,
+    onSetCurrentImage: PropTypes.func,
 }
 
 export default React.memo(ModelShowItem)
