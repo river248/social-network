@@ -9,7 +9,7 @@ import {
     ModalKeyboardArrowRightIcon,
 } from './ModelShowItem.style'
 
-function ModelShowItem({ open, images, currentImage, onClose, onSetCurrentImage }) {
+function ModelShowItem({ open, images, currentImage, onClose, onNextImage, onPrevImage }) {
     return (
         <Modal
             open={open}
@@ -23,15 +23,22 @@ function ModelShowItem({ open, images, currentImage, onClose, onSetCurrentImage 
             <BoxWrapprer>
                 {images.map(
                     (item, index) =>
-                        currentImage === index && (
+                        currentImage % images.length === index && (
                             <BoxContainer key={item.img}>
-                                <ModalKeyboardArrowLeftIcon onClick={() => onSetCurrentImage(-1)} />
-                                <img
-                                    src={item.img}
-                                    alt={item.title}
-                                    style={{ maxWidth: '85%', maxHeight: '95%', borderRadius: 16 }}
-                                />
-                                <ModalKeyboardArrowRightIcon onClick={() => onSetCurrentImage(+1)} />
+                                {images.length > 1 && <ModalKeyboardArrowLeftIcon onClick={onPrevImage} />}
+                                <div style={{ width: '85%', height: '95%', overflow: 'hidden' }}>
+                                    <img
+                                        src={item.img}
+                                        alt={item.title}
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'contain',
+                                        }}
+                                        loading="lazy"
+                                    />
+                                </div>
+                                {images.length > 1 && <ModalKeyboardArrowRightIcon onClick={onNextImage} />}
                             </BoxContainer>
                         ),
                 )}
@@ -50,7 +57,8 @@ ModelShowItem.propTypes = {
     ),
     currentImage: PropTypes.number,
     onClose: PropTypes.func,
-    onSetCurrentImage: PropTypes.func,
+    onNextImage: PropTypes.func,
+    onPrevImage: PropTypes.func,
 }
 
 export default React.memo(ModelShowItem)

@@ -5,7 +5,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 
 const BoxWrapprer = styled(Box)(({ theme }) => ({
     borderRadius: 16,
-    width: '70vw',
+    width: 700,
     height: '90vh',
     background: theme.palette.common.black,
     '&:focus': {
@@ -22,8 +22,8 @@ const BoxContainer = styled(Box)(() => ({
     justifyContent: 'center',
 }))
 const ModalKeyboardArrowLeftIcon = styled(KeyboardArrowLeftIcon)(() => ({
-    height: '10%',
-    width: '10%',
+    height: 40,
+    width: 40,
     cursor: 'pointer',
     position: 'absolute',
     top: '50%',
@@ -31,8 +31,8 @@ const ModalKeyboardArrowLeftIcon = styled(KeyboardArrowLeftIcon)(() => ({
     transform: 'translateY(-50%)',
 }))
 const ModalKeyboardArrowRightIcon = styled(KeyboardArrowRightIcon)(() => ({
-    height: '10%',
-    width: '10%',
+    height: 40,
+    width: 40,
     cursor: 'pointer',
     position: 'absolute',
     top: '50%',
