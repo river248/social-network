@@ -8,6 +8,7 @@ import {
     ModalKeyboardArrowLeftIcon,
     ModalKeyboardArrowRightIcon,
 } from './ModelShowItem.style'
+import { Box } from '@mui/material'
 
 function ModelShowItem({ open, images, currentImage, onClose, onChangeImage }) {
     return (
@@ -28,7 +29,7 @@ function ModelShowItem({ open, images, currentImage, onClose, onChangeImage }) {
                                 {images.length > 1 && (
                                     <ModalKeyboardArrowLeftIcon onClick={() => onChangeImage('prev')} />
                                 )}
-                                <div style={{ width: '85%', height: '95%', overflow: 'hidden' }}>
+                                <Box style={{ width: '85%', height: '95%', overflow: 'hidden' }}>
                                     <img
                                         src={item.img}
                                         alt={item.title}
@@ -39,7 +40,7 @@ function ModelShowItem({ open, images, currentImage, onClose, onChangeImage }) {
                                         }}
                                         loading="lazy"
                                     />
-                                </div>
+                                </Box>
                                 {images.length > 1 && (
                                     <ModalKeyboardArrowRightIcon onClick={() => onChangeImage('next')} />
                                 )}
