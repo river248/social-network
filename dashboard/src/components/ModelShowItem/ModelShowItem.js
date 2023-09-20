@@ -9,7 +9,7 @@ import {
     ModalKeyboardArrowRightIcon,
 } from './ModelShowItem.style'
 
-function ModelShowItem({ open, images, currentImage, onClose, onNextImage, onPrevImage }) {
+function ModelShowItem({ open, images, currentImage, onClose, onChangeImage }) {
     return (
         <Modal
             open={open}
@@ -25,7 +25,9 @@ function ModelShowItem({ open, images, currentImage, onClose, onNextImage, onPre
                     (item, index) =>
                         currentImage % images.length === index && (
                             <BoxContainer key={item.img}>
-                                {images.length > 1 && <ModalKeyboardArrowLeftIcon onClick={onPrevImage} />}
+                                {images.length > 1 && (
+                                    <ModalKeyboardArrowLeftIcon onClick={() => onChangeImage('prev')} />
+                                )}
                                 <div style={{ width: '85%', height: '95%', overflow: 'hidden' }}>
                                     <img
                                         src={item.img}
@@ -38,7 +40,9 @@ function ModelShowItem({ open, images, currentImage, onClose, onNextImage, onPre
                                         loading="lazy"
                                     />
                                 </div>
-                                {images.length > 1 && <ModalKeyboardArrowRightIcon onClick={onNextImage} />}
+                                {images.length > 1 && (
+                                    <ModalKeyboardArrowRightIcon onClick={() => onChangeImage('next')} />
+                                )}
                             </BoxContainer>
                         ),
                 )}
@@ -57,8 +61,7 @@ ModelShowItem.propTypes = {
     ),
     currentImage: PropTypes.number,
     onClose: PropTypes.func,
-    onNextImage: PropTypes.func,
-    onPrevImage: PropTypes.func,
+    onChangeImage: PropTypes.func,
 }
 
 export default React.memo(ModelShowItem)

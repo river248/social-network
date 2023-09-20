@@ -17,12 +17,17 @@ function PostMediaContainer() {
         setOpen(false)
         setCurrentImage(0)
     }, [])
-    const handleNextImage = useCallback(() => {
-        setCurrentImage((pre) => pre + 1)
-    }, [])
-
-    const handlePrevImage = useCallback(() => {
-        setCurrentImage((pre) => pre - 1)
+    const handeChangeImage = useCallback((data) => {
+        switch (data) {
+            case 'next':
+                setCurrentImage((pre) => pre + 1)
+                break
+            case 'prev':
+                setCurrentImage((pre) => pre - 1)
+                break
+            default:
+                break
+        }
     }, [])
 
     return (
@@ -33,8 +38,7 @@ function PostMediaContainer() {
                 open={open}
                 images={memoizedItemData}
                 currentImage={currentImage}
-                onNextImage={handleNextImage}
-                onPrevImage={handlePrevImage}
+                onChangeImage={handeChangeImage}
             />
         </Fragment>
     )
