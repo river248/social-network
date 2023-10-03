@@ -18,15 +18,10 @@ function PostMediaContainer() {
         setCurrentImage(0)
     }, [])
     const handeChangeImage = useCallback((data) => {
-        switch (data) {
-            case 'next':
-                setCurrentImage((pre) => pre + 1)
-                break
-            case 'prev':
-                setCurrentImage((pre) => pre - 1)
-                break
-            default:
-                break
+        if (data === 'next') {
+            setCurrentImage((pre) => (pre + 1) % memoizedItemData.length)
+        } else {
+            setCurrentImage((pre) => (pre - 1) % memoizedItemData.length)
         }
     }, [])
 

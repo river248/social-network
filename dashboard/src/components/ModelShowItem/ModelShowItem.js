@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Modal from '@mui/material/Modal'
+import Box from '@mui/material/Box'
 
 import {
     BoxWrapprer,
@@ -8,7 +9,6 @@ import {
     ModalKeyboardArrowLeftIcon,
     ModalKeyboardArrowRightIcon,
 } from './ModelShowItem.style'
-import { Box } from '@mui/material'
 
 function ModelShowItem({ open, images, currentImage, onClose, onChangeImage }) {
     return (
@@ -22,31 +22,22 @@ function ModelShowItem({ open, images, currentImage, onClose, onChangeImage }) {
             }}
         >
             <BoxWrapprer>
-                {images.map(
-                    (item, index) =>
-                        currentImage % images.length === index && (
-                            <BoxContainer key={item.img}>
-                                {images.length > 1 && (
-                                    <ModalKeyboardArrowLeftIcon onClick={() => onChangeImage('prev')} />
-                                )}
-                                <Box style={{ width: '85%', height: '95%', overflow: 'hidden' }}>
-                                    <img
-                                        src={item.img}
-                                        alt={item.title}
-                                        style={{
-                                            width: '100%',
-                                            height: '100%',
-                                            objectFit: 'contain',
-                                        }}
-                                        loading="lazy"
-                                    />
-                                </Box>
-                                {images.length > 1 && (
-                                    <ModalKeyboardArrowRightIcon onClick={() => onChangeImage('next')} />
-                                )}
-                            </BoxContainer>
-                        ),
-                )}
+                <BoxContainer>
+                    {images.length > 1 && <ModalKeyboardArrowLeftIcon onClick={() => onChangeImage('prev')} />}
+                    <Box style={{ width: '85%', height: '95%', overflow: 'hidden' }}>
+                        <img
+                            src={images[currentImage].img}
+                            alt={images[currentImage].title}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain',
+                            }}
+                            loading="lazy"
+                        />
+                    </Box>
+                    {images.length > 1 && <ModalKeyboardArrowRightIcon onClick={() => onChangeImage('next')} />}
+                </BoxContainer>
             </BoxWrapprer>
         </Modal>
     )
