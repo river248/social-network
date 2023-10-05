@@ -3,6 +3,15 @@ import Box from '@mui/material/Box'
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
 
+const styleIcon = {
+    height: 40,
+    width: 40,
+    cursor: 'pointer',
+    position: 'absolute',
+    top: '50%',
+    transform: 'translateY(-50%)',
+}
+
 const BoxWrapprer = styled(Box)(({ theme }) => ({
     borderRadius: 16,
     width: 700,
@@ -22,21 +31,11 @@ const BoxContainer = styled(Box)(() => ({
     justifyContent: 'center',
 }))
 const ModalKeyboardArrowLeftIcon = styled(KeyboardArrowLeftIcon)(() => ({
-    height: 40,
-    width: 40,
-    cursor: 'pointer',
-    position: 'absolute',
-    top: '50%',
+    ...styleIcon,
     left: 0,
-    transform: 'translateY(-50%)',
 }))
 const ModalKeyboardArrowRightIcon = styled(KeyboardArrowRightIcon)(() => ({
-    height: 40,
-    width: 40,
-    cursor: 'pointer',
-    position: 'absolute',
-    top: '50%',
+    ...styleIcon,
     right: 0,
-    transform: 'translateY(-50%)',
 }))
 export { BoxWrapprer, BoxContainer, ModalKeyboardArrowLeftIcon, ModalKeyboardArrowRightIcon }

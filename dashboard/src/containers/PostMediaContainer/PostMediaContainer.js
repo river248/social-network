@@ -17,13 +17,16 @@ function PostMediaContainer() {
         setOpen(false)
         setCurrentImage(0)
     }, [])
-    const handeChangeImage = useCallback((data) => {
-        if (data === 'next') {
-            setCurrentImage((pre) => (pre + 1) % memoizedItemData.length)
-        } else {
-            setCurrentImage((pre) => (pre - 1) % memoizedItemData.length)
-        }
-    }, [])
+    const handeChangeImage = useCallback(
+        (data) => {
+            if (data === 'next') {
+                setCurrentImage((pre) => (pre + 1) % memoizedItemData.length)
+            } else {
+                setCurrentImage((pre) => (pre - 1) % memoizedItemData.length)
+            }
+        },
+        [currentImage],
+    )
 
     return (
         <Fragment>
