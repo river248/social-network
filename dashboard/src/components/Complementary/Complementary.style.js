@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid'
 
 const GridStyle = styled(Grid)(({ theme }) => ({
     height: '100%',
-    background: theme.palette.common.white,
+    background: theme.palette.common.black,
     padding: theme.spacing(0.25),
     overflowX: 'auto',
     position: 'fixed',

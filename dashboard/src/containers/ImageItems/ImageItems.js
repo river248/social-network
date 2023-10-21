@@ -1,7 +1,6 @@
 import React from 'react'
 import Stack from '@mui/material/Stack'
 import PropTypes from 'prop-types'
-// this is test
 function ImageItems({ images }) {
     if (images.length === 1)
         return (
