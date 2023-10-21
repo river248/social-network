@@ -97,7 +97,7 @@ jobs:
               with:
                   path: ./dashboard/.firebaserc
                   contents: |
-                      {"projects": {"default": "social-network-test-36ed4"}}
+                      {"projects": {"default": "social-network-test-5a774"}}
                   write-mode: overwrite
               continue-on-error: true
             - name: Deploy dashboard to Firebase
