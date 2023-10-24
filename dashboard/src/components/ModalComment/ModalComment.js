@@ -3,8 +3,9 @@ import React from 'react'
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
-
 import { useTheme } from '@mui/material/styles'
+
+import PropTypes from 'prop-types'
 
 function ModalComment({ open, onClose }) {
     const theme = useTheme()
@@ -26,6 +27,11 @@ function ModalComment({ open, onClose }) {
             </Box>
         </Modal>
     )
+}
+
+ModalComment.propTypes = {
+    open: PropTypes.bool,
+    onClose: PropTypes.func,
 }
 
 export default React.memo(ModalComment)
