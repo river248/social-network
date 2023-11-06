@@ -1,6 +1,6 @@
 import React from 'react'
-
 import Skeleton from '@mui/material/Skeleton'
+import Box from '@mui/material/Box'
 import { useTheme } from '@mui/material/styles'
 import { PropTypes } from 'prop-types'
 
@@ -13,10 +13,10 @@ function CommentItem({ item, itemLoading, loading }) {
                 height={itemLoading.height}
                 width={itemLoading.width}
                 sx={{ background: theme.palette.secondary.gray }}
-            ></Skeleton>
+            />
         )
     }
-    return <div>{item.name}</div>
+    return <Box>{item.name}</Box>
 }
 
 CommentItem.propTypes = {
@@ -34,4 +34,4 @@ CommentItem.propTypes = {
     }),
 }
 
-export default CommentItem
+export default React.memo(CommentItem)

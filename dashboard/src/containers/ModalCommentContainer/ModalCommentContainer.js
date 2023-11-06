@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react'
-
+import React, { useEffect, useMemo, useState } from 'react'
 import Modal from '@mui/material/Modal'
-
 import Stack from '@mui/material/Stack'
 import PropTypes from 'prop-types'
 
@@ -9,32 +7,36 @@ import { fetchComments } from '~/apis'
 import { BoxWrapprer } from '~/components/ModelShowItem/ModelShowItem.style'
 import CommentItem from '~/components/CommentItem'
 
-function ModalComment({ onClose }) {
+function ModalCommentContainer({ onClose }) {
     const [listComment, setListComment] = useState([])
     const [loading, setLoading] = useState(false)
     const page = 1
-    const loadItems = [
-        {
-            id: 1,
-            height: 20,
-            width: 200,
-        },
-        {
-            id: 2,
-            height: 24,
-            width: 230,
-        },
-        {
-            id: 3,
-            height: 32,
-            width: 120,
-        },
-        {
-            id: 4,
-            height: 42,
-            width: 300,
-        },
-    ]
+    const loadItems = useMemo(
+        () => [
+            {
+                id: 1,
+                height: 20,
+                width: 200,
+            },
+            {
+                id: 2,
+                height: 24,
+                width: 230,
+            },
+            {
+                id: 3,
+                height: 32,
+                width: 120,
+            },
+            {
+                id: 4,
+                height: 42,
+                width: 300,
+            },
+        ],
+        [],
+    )
+
     useEffect(() => {
         const callAPI = async () => {
             setLoading(true)
@@ -44,6 +46,7 @@ function ModalComment({ onClose }) {
         }
         callAPI()
     }, [page])
+
     return (
         <Modal
             open={true}
@@ -70,8 +73,8 @@ function ModalComment({ onClose }) {
     )
 }
 
-ModalComment.propTypes = {
+ModalCommentContainer.propTypes = {
     onClose: PropTypes.func,
 }
 
-export default React.memo(ModalComment)
+export default React.memo(ModalCommentContainer)

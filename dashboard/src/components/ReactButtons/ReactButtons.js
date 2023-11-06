@@ -23,9 +23,10 @@ function ReactButtons({ items, skeletonItems, loading, ...passProps }) {
     return (
         <Stack direction="row" spacing={1} {...passProps}>
             {items.map((item) => {
-                const { value, id, key, icon: Icon, ...passPropsItem } = item
+                const { value, id, icon, onClick } = item
+                const Icon = icon
                 return (
-                    <Button key={id} color="inherit" startIcon={<Icon />} {...passPropsItem}>
+                    <Button key={id} color="inherit" startIcon={<Icon />} onClick={onClick}>
                         {value}
                     </Button>
                 )

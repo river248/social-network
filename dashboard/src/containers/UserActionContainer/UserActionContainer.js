@@ -6,7 +6,7 @@ import ChatBubbleIcon from '@mui/icons-material/ChatBubble'
 import ShareIcon from '@mui/icons-material/Share'
 
 import UserAction from '~/components/UserAction'
-import ModalComment from '~/containers/ModalComment'
+import ModalCommentContainer from '~/containers/ModalCommentContainer'
 function UserActionContainer() {
     const [openComment, setOpenComment] = useState(false)
     const handleOpenComment = useCallback(() => {
@@ -75,7 +75,7 @@ function UserActionContainer() {
     return (
         <Fragment>
             <UserAction reacts={reactButtons} communtions={communtionButtons} actions={actionButtons} />
-            {openComment && <ModalComment onClose={handleCloseComment} />}
+            {openComment && <ModalCommentContainer onClose={handleCloseComment} />}
         </Fragment>
     )
 }
