@@ -73,6 +73,68 @@ export const dataArray = [
     },
 ]
 
+export const dataArrayComment = [
+    {
+        id: 1,
+        name: 'Comment 1',
+        content: 'Comment content 1',
+        time: 1690112342041,
+    },
+    {
+        id: 2,
+        name: 'Comment 2',
+        content: 'Comment content 2',
+        time: 1699218344041,
+    },
+    {
+        id: 3,
+        name: 'Comment 3',
+        content: 'Comment content 3',
+        time: 1690268303141,
+    },
+    {
+        id: 4,
+        name: 'Comment 4',
+        content: 'Comment content 4',
+        time: 1690568392041,
+    },
+    {
+        id: 5,
+        name: 'Comment 5',
+        content: 'Comment content 5',
+        time: 1690199942041,
+    },
+    {
+        id: 6,
+        name: 'Comment 6',
+        content: 'Comment content 6',
+        time: 1690161000041,
+    },
+    {
+        id: 7,
+        name: 'Comment 7',
+        content: 'Comment content 7',
+        time: 1690168349991,
+    },
+    {
+        id: 8,
+        name: 'Comment 8',
+        content: 'Comment content 8',
+        time: 1690168300041,
+    },
+    {
+        id: 9,
+        name: 'Comment 9',
+        content: 'Comment content 9',
+        time: 1690199942041,
+    },
+    {
+        id: 10,
+        name: 'NComment10',
+        content: 'CComment content10',
+        time: 1691232042041,
+    },
+]
 export const mockData = async () => {
     return new Promise((resolve, _) => {
         const wait = setTimeout(() => {
@@ -87,5 +149,22 @@ export const mockData = async () => {
                 // },
             })
         }, 1)
+    })
+}
+
+export const mockDataComment = async () => {
+    return new Promise((resolve, _) => {
+        const wait = setTimeout(() => {
+            clearTimeout(wait)
+            resolve({
+                data: dataArrayComment,
+                // response: {
+                //     status: 500,
+                //     data: {
+                //         error: 'Wrong data',
+                //     },
+                // },
+            })
+        }, 1000)
     })
 }

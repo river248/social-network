@@ -23,10 +23,11 @@ function ReactButtons({ items, skeletonItems, loading, ...passProps }) {
     return (
         <Stack direction="row" spacing={1} {...passProps}>
             {items.map((item) => {
-                const Icon = item.icon
+                const { value, id, icon, onClick } = item
+                const Icon = icon
                 return (
-                    <Button key={item.id} color="inherit" startIcon={<Icon />}>
-                        {item.value}
+                    <Button key={id} color="inherit" startIcon={<Icon />} onClick={onClick}>
+                        {value}
                     </Button>
                 )
             })}
@@ -40,6 +41,7 @@ ReactButtons.propTypes = {
             icon: PropTypes.elementType,
             value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
             id: PropTypes.number,
+            onClick: PropTypes.func,
         }),
     ),
     skeletonItems: PropTypes.arrayOf(PropTypes.number),
