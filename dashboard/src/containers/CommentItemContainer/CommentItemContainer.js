@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { PropTypes } from 'prop-types'
-
+import PropTypes from 'prop-types'
 import CommentItem from '~/components/CommentItem'
 
 function CommentItemContainer({ item }) {
@@ -8,14 +7,14 @@ function CommentItemContainer({ item }) {
     const [showMore, setShowMore] = useState(true)
 
     const handleLengthContent = useCallback(() => {
-        if (item && item.content.length >= 200) {
+        if (item && item.content && item.content.length >= 200) {
             setNewItem((pre) => ({
                 ...pre,
                 content: item.content.slice(0, 200),
                 isCutContent: true,
             }))
         }
-    }, [])
+    }, [item])
 
     const handleShowMore = useCallback(
         (more) => {
@@ -35,16 +34,17 @@ function CommentItemContainer({ item }) {
                 }
             }
         },
-        [showMore],
+        [item],
     )
+
     useEffect(() => {
         handleLengthContent()
-    }, [])
+    }, [handleLengthContent])
 
     return <CommentItem item={newItem} showMore={showMore} handleShowMore={handleShowMore} />
 }
 
-CommentItem.propTypes = {
+CommentItemContainer.propTypes = {
     item: PropTypes.shape({
         id: PropTypes.number,
         name: PropTypes.string,
