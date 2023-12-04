@@ -7,7 +7,7 @@ function CommentItemContainer({ item }) {
     const [showMore, setShowMore] = useState(true)
 
     const handleLengthContent = useCallback(() => {
-        if (item && item.content && item.content.length >= 200) {
+        if (item?.content?.length >= 200) {
             setNewItem((pre) => ({
                 ...pre,
                 content: item.content.slice(0, 200),
