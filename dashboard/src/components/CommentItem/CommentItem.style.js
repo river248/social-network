@@ -5,11 +5,10 @@ import Button from '@mui/material/Button'
 const StackStyle = styled(Stack)(({ theme }) => ({
     minHeight: 53,
     background: theme.palette.secondary.gray3,
-    padding: theme.spacing(0.25),
+    padding: theme.spacing(10 / 8),
     borderRadius: 10,
     width: 'fit-content',
     alignContent: 'center',
-    padding: 10,
 }))
 
 const ButtonStyle = styled(Button)(({ theme }) => ({
