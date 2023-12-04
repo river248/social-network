@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import { fetchComments } from '~/apis'
 import { BoxWrapprer } from '~/components/ModelShowItem/ModelShowItem.style'
 import CommentItem from '~/components/CommentItem'
+import CommentItemContainer from '~/containers/CommentItemContainer'
 
 function ModalCommentContainer({ onClose }) {
     const [listComment, setListComment] = useState([])
@@ -15,12 +16,12 @@ function ModalCommentContainer({ onClose }) {
         () => [
             {
                 id: 1,
-                height: 20,
+                height: 53,
                 width: 200,
             },
             {
                 id: 2,
-                height: 24,
+                height: 64,
                 width: 230,
             },
             {
@@ -59,11 +60,18 @@ function ModalCommentContainer({ onClose }) {
                 justifyContent: 'center',
             }}
         >
-            <BoxWrapprer>
+            <BoxWrapprer
+                sx={{
+                    overflowY: 'auto',
+                    '&::-webkit-scrollbar': {
+                        display: 'none',
+                    },
+                }}
+            >
                 {
-                    <Stack spacing={2}>
+                    <Stack spacing={2} padding={2}>
                         {listComment.map((item) => (
-                            <CommentItem key={item.id} item={item} loading={loading} />
+                            <CommentItemContainer key={item.id} item={item} />
                         ))}
                         {loading && loadItems.map((item) => <CommentItem loading key={item.id} itemLoading={item} />)}
                     </Stack>
