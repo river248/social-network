@@ -8,7 +8,7 @@ function CommentItemContainer({ item }) {
     const [showMore, setShowMore] = useState(true)
 
     const handleLengthContent = useCallback(() => {
-        if (item.content.length >= 200) {
+        if (item && item.content.length >= 200) {
             setNewItem((pre) => ({
                 ...pre,
                 content: item.content.slice(0, 200),
@@ -19,18 +19,20 @@ function CommentItemContainer({ item }) {
 
     const handleShowMore = useCallback(
         (more) => {
-            if (more) {
-                setNewItem((pre) => ({
-                    ...pre,
-                    content: item.content,
-                }))
-                setShowMore(false)
-            } else {
-                setNewItem((pre) => ({
-                    ...pre,
-                    content: item.content.slice(0, 200),
-                }))
-                setShowMore(true)
+            if (item) {
+                if (more) {
+                    setNewItem((pre) => ({
+                        ...pre,
+                        content: item.content,
+                    }))
+                    setShowMore(false)
+                } else {
+                    setNewItem((pre) => ({
+                        ...pre,
+                        content: item.content.slice(0, 200),
+                    }))
+                    setShowMore(true)
+                }
             }
         },
         [showMore],
