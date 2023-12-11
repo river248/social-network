@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
+import { isEmpty } from 'lodash'
+
 import CommentItem from '~/components/CommentItem'
 
 function CommentItemContainer({ item }) {
@@ -18,7 +20,7 @@ function CommentItemContainer({ item }) {
 
     const handleShowMore = useCallback(
         (more) => {
-            if (item) {
+            if (!isEmpty(item)) {
                 if (more) {
                     setNewItem((pre) => ({
                         ...pre,

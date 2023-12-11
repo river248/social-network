@@ -3,38 +3,39 @@ import Skeleton from '@mui/material/Skeleton'
 import Box from '@mui/material/Box'
 import Avatar from '@mui/material/Avatar'
 import Stack from '@mui/material/Stack'
-import { useTheme } from '@mui/material/styles'
+import Typography from '@mui/material/Typography'
 import { ButtonStyle, StackStyle } from './CommentItem.style'
 import { PropTypes } from 'prop-types'
 
-function CommentItem({ item, itemLoading, loading, showMore, handleShowMore }) {
-    const theme = useTheme()
+function CommentItem({ item, itemLoading, loading, showMore, handleShowMore, backGroudSketeton }) {
     if (loading) {
         return (
             <Stack direction="row" spacing={1}>
-                <Skeleton variant="circular" height={40} width={40} sx={{ background: theme.palette.secondary.gray }} />
+                <Skeleton variant="circular" height={40} width={40} sx={{ background: backGroudSketeton }} />
                 <StackStyle spacing={1}>
                     <Skeleton
                         variant="rounded"
                         height={20}
-                        width={itemLoading.width / 2}
-                        sx={{ background: theme.palette.secondary.gray }}
-                    ></Skeleton>
+                        width={itemLoading.widthName}
+                        sx={{ background: backGroudSketeton }}
+                    />
                     <Skeleton
                         variant="rounded"
                         height={itemLoading.height}
                         width={itemLoading.width}
-                        sx={{ background: theme.palette.secondary.gray }}
-                    ></Skeleton>
+                        sx={{ background: backGroudSketeton }}
+                    />
                 </StackStyle>
             </Stack>
         )
     }
     return (
         <Stack direction="row" spacing={1}>
-            <Avatar></Avatar>
+            <Avatar />
             <StackStyle>
-                <Box sx={{ fontWeight: 700 }}>{item.name}</Box>
+                <Typography component="div" sx={{ fontWeight: 700 }}>
+                    {item.name}
+                </Typography>
                 <Box>
                     {item.content}{' '}
                     {item.isCutContent &&
@@ -62,9 +63,11 @@ CommentItem.propTypes = {
         id: PropTypes.number,
         height: PropTypes.number,
         width: PropTypes.number,
+        widthName: PropTypes.number,
     }),
     showMore: PropTypes.bool,
     handleShowMore: PropTypes.func,
+    backGroudSketeton: PropTypes.string,
 }
 
 export default React.memo(CommentItem)
