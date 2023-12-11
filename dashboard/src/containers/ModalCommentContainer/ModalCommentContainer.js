@@ -22,17 +22,22 @@ function ModalCommentContainer({ onClose }) {
             {
                 id: 2,
                 height: 64,
-                width: 230,
+                width: 530,
             },
             {
                 id: 3,
-                height: 32,
-                width: 120,
+                height: 65,
+                width: 320,
             },
             {
                 id: 4,
-                height: 42,
+                height: 43,
                 width: 300,
+            },
+            {
+                id: 5,
+                height: 36,
+                width: 436,
             },
         ],
         [],

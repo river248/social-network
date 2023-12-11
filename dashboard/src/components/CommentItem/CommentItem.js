@@ -4,32 +4,47 @@ import Box from '@mui/material/Box'
 import { useTheme } from '@mui/material/styles'
 import { PropTypes } from 'prop-types'
 import { ButtonStyle, StackStyle } from './CommentItem.style'
+import { Avatar, Stack } from '@mui/material'
 
 function CommentItem({ item, itemLoading, loading, showMore, handleShowMore }) {
     const theme = useTheme()
     if (loading) {
         return (
-            <Skeleton
-                variant="rounded"
-                height={itemLoading.height}
-                width={itemLoading.width}
-                sx={{ background: theme.palette.secondary.gray }}
-            />
+            <Stack direction="row" spacing={1}>
+                <Skeleton variant="circular" height={40} width={40} sx={{ background: theme.palette.secondary.gray }} />
+                <StackStyle spacing={1}>
+                    <Skeleton
+                        variant="rounded"
+                        height={20}
+                        width={itemLoading.width / 2}
+                        sx={{ background: theme.palette.secondary.gray }}
+                    ></Skeleton>
+                    <Skeleton
+                        variant="rounded"
+                        height={itemLoading.height}
+                        width={itemLoading.width}
+                        sx={{ background: theme.palette.secondary.gray }}
+                    ></Skeleton>
+                </StackStyle>
+            </Stack>
         )
     }
     return (
-        <StackStyle>
-            <Box sx={{ fontWeight: 700 }}>{item.name}</Box>
-            <Box>
-                {item.content}{' '}
-                {item.isCutContent &&
-                    (showMore ? (
-                        <ButtonStyle onClick={() => handleShowMore(true)}>...See More </ButtonStyle>
-                    ) : (
-                        <ButtonStyle onClick={() => handleShowMore(false)}>Hidden</ButtonStyle>
-                    ))}
-            </Box>
-        </StackStyle>
+        <Stack direction="row" spacing={1}>
+            <Avatar></Avatar>
+            <StackStyle>
+                <Box sx={{ fontWeight: 700 }}>{item.name}</Box>
+                <Box>
+                    {item.content}{' '}
+                    {item.isCutContent &&
+                        (showMore ? (
+                            <ButtonStyle onClick={() => handleShowMore(true)}>...See More </ButtonStyle>
+                        ) : (
+                            <ButtonStyle onClick={() => handleShowMore(false)}>Hidden</ButtonStyle>
+                        ))}
+                </Box>
+            </StackStyle>
+        </Stack>
     )
 }
 
