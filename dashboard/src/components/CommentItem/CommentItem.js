@@ -7,23 +7,23 @@ import Typography from '@mui/material/Typography'
 import { ButtonStyle, StackStyle } from './CommentItem.style'
 import { PropTypes } from 'prop-types'
 
-function CommentItem({ item, itemLoading, loading, showMore, handleShowMore, backGroudSketeton }) {
+function CommentItem({ item, itemLoading, loading, showMore, handleShowMore }) {
     if (loading) {
         return (
             <Stack direction="row" spacing={1}>
-                <Skeleton variant="circular" height={40} width={40} sx={{ background: backGroudSketeton }} />
+                <Skeleton variant="circular" height={40} width={40} sx={{ background: itemLoading.background }} />
                 <StackStyle spacing={1}>
                     <Skeleton
                         variant="rounded"
                         height={20}
                         width={itemLoading.widthName}
-                        sx={{ background: backGroudSketeton }}
+                        sx={{ background: itemLoading.background }}
                     />
                     <Skeleton
                         variant="rounded"
                         height={itemLoading.height}
                         width={itemLoading.width}
-                        sx={{ background: backGroudSketeton }}
+                        sx={{ background: itemLoading.background }}
                     />
                 </StackStyle>
             </Stack>
@@ -64,10 +64,10 @@ CommentItem.propTypes = {
         height: PropTypes.number,
         width: PropTypes.number,
         widthName: PropTypes.number,
+        background: PropTypes.string,
     }),
     showMore: PropTypes.bool,
     handleShowMore: PropTypes.func,
-    backGroudSketeton: PropTypes.string,
 }
 
 export default React.memo(CommentItem)
