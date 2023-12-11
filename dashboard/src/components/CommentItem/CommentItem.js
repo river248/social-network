@@ -1,10 +1,11 @@
 import React from 'react'
 import Skeleton from '@mui/material/Skeleton'
 import Box from '@mui/material/Box'
+import Avatar from '@mui/material/Avatar'
+import Stack from '@mui/material/Stack'
 import { useTheme } from '@mui/material/styles'
-import { PropTypes } from 'prop-types'
 import { ButtonStyle, StackStyle } from './CommentItem.style'
-import { Avatar, Stack } from '@mui/material'
+import { PropTypes } from 'prop-types'
 
 function CommentItem({ item, itemLoading, loading, showMore, handleShowMore }) {
     const theme = useTheme()
