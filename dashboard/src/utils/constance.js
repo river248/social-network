@@ -89,3 +89,40 @@ export const httpStatusCode = {
     NOT_FOUND: 404,
     INTERNAL_SERVER: 500,
 }
+export const loadingComments = (theme) => [
+    {
+        id: 1,
+        height: 53,
+        width: 200,
+        widthName: 100,
+        background: theme.palette.secondary.gray,
+    },
+    {
+        id: 2,
+        height: 64,
+        width: 530,
+        widthName: 123,
+        background: theme.palette.secondary.gray,
+    },
+    {
+        id: 3,
+        height: 65,
+        width: 320,
+        widthName: 130,
+        background: theme.palette.secondary.gray,
+    },
+    {
+        id: 4,
+        height: 43,
+        width: 300,
+        widthName: 70,
+        background: theme.palette.secondary.gray,
+    },
+    {
+        id: 5,
+        height: 36,
+        width: 436,
+        widthName: 200,
+        background: theme.palette.secondary.gray,
+    },
+]

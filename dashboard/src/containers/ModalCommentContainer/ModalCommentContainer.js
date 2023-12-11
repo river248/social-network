@@ -1,41 +1,21 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import Modal from '@mui/material/Modal'
 import Stack from '@mui/material/Stack'
+import { useTheme } from '@mui/material/styles'
 import PropTypes from 'prop-types'
 
 import { fetchComments } from '~/apis'
 import { BoxWrapprer } from '~/components/ModelShowItem/ModelShowItem.style'
 import CommentItem from '~/components/CommentItem'
+import CommentItemContainer from '~/containers/CommentItemContainer'
+import { loadingComments } from '~/utils/constance'
 
 function ModalCommentContainer({ onClose }) {
+    const theme = useTheme()
     const [listComment, setListComment] = useState([])
     const [loading, setLoading] = useState(false)
-    const page = 1
-    const loadItems = useMemo(
-        () => [
-            {
-                id: 1,
-                height: 20,
-                width: 200,
-            },
-            {
-                id: 2,
-                height: 24,
-                width: 230,
-            },
-            {
-                id: 3,
-                height: 32,
-                width: 120,
-            },
-            {
-                id: 4,
-                height: 42,
-                width: 300,
-            },
-        ],
-        [],
-    )
+    const page = useMemo(() => 1, [])
+    const loadItems = useMemo(() => loadingComments(theme), [])
 
     useEffect(() => {
         const callAPI = async () => {
@@ -59,11 +39,18 @@ function ModalCommentContainer({ onClose }) {
                 justifyContent: 'center',
             }}
         >
-            <BoxWrapprer>
+            <BoxWrapprer
+                sx={{
+                    overflowY: 'auto',
+                    '&::-webkit-scrollbar': {
+                        display: 'none',
+                    },
+                }}
+            >
                 {
-                    <Stack spacing={2}>
+                    <Stack spacing={2} padding={2}>
                         {listComment.map((item) => (
-                            <CommentItem key={item.id} item={item} loading={loading} />
+                            <CommentItemContainer key={item.id} item={item} />
                         ))}
                         {loading && loadItems.map((item) => <CommentItem loading key={item.id} itemLoading={item} />)}
                     </Stack>
