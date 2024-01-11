@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack'
 import Complementary from '~/components/Complementary'
 import { fetchNewfeeds } from '~/apis'
 import PostItem from '~/components/PostItem'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 
 function Home() {
     const arr = useMemo(() => [1, 2, 3, 4, 5, 6, 7, 8, 9], [])

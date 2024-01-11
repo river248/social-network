@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles'
 import { Slide, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { HelmetProvider } from 'react-helmet-async'
 
 import App from './App'
 import GlobalStyles from './components/GlobalStyles'
@@ -17,7 +18,9 @@ root.render(
             <CssBaseline />
             <Router>
                 <GlobalStyles>
-                    <App />
+                    <HelmetProvider>
+                        <App />
+                    </HelmetProvider>
                 </GlobalStyles>
                 <ToastContainer
                     position={'top-right'}
