@@ -33,7 +33,7 @@ function Home() {
                 <meta property="og:description" content="Mô tả của bạn" />
                 <meta
                     property="og:image"
-                    content="https://scontent.fsgn2-6.fna.fbcdn.net/v/t1.6435-9/68239676_1363206673842950_8039915213148913664_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=be3454&_nc_ohc=7UvlJTlV4-sAX_-V8B7&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfDXjQFo_H8Ptu1DfYSyP583ubC8Z4kTZhKMTbIbhqaeCQ&oe=65C7154D"
+                    content="https://fullstack.edu.vn/static/media/f8-og-image.245ebc1d5d7a5240254c.png"
                 />
             </Helmet>
             <Grid item xs={10} sm={10} md={10} lg={10}>
