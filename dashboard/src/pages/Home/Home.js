@@ -26,6 +26,7 @@ function Home() {
     return (
         <Stack sx={{ background: 'linear-gradient(to right, #c6ffdd, #fbd786, #f7797d)' }}>
             <Helmet>
+                <title>abcd</title>
                 <meta property="og:url" content="URL của bạn" />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Tiêu đề của bạn" />
