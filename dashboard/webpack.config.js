@@ -84,10 +84,10 @@ module.exports = {
             title: 'Social Network',
             filename: 'index.html',
             template: 'public/index.html',
-            meta: {
-                viewport: 'width=device-width, initial-scale=1',
-                description: 'Web site created using webpack',
-            },
+            // meta: {
+            //     viewport: 'width=device-width, initial-scale=1',
+            //     description: 'Web site created using webpack',
+            // },
             // favicon: 'public/logo192.png',
         }),
         new BundleAnalyzerPlugin({
